@@ -76,13 +76,6 @@ main {
   font-family: times;
 }
 
-footer{
-  padding: 30px;
-}
-
-footer li{
-  color: white;
-}
 
 button {
    background-color: black;
@@ -137,6 +130,7 @@ form button[type="submit"] {
 .cards {
   display: flex;
   transition: transform 0.5s ease;
+  overflow: hidden;
 }
 
 .card {
@@ -150,10 +144,113 @@ form button[type="submit"] {
   height: auto;
 }
 
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 70%;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: grey;
+}
+
+/* Caption text */
+.text {
+  padding: 20px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.text button{
+  background-color: white;
+  color: black;
+  padding: 3%;
+  margin: 10px 0;
+  border: none ;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+  border-radius: 12px;
+  font-size: 100%;
+  font-weight: bold;
+
+}
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.5s ease;
+}
+
+.active, .dot:hover {
+  background-color: #bf0fb1ff;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.8s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
 .product-display{
 }
 
 .product-display1 ul {
+  list-style: none;
   display: grid ;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
@@ -182,6 +279,7 @@ form button[type="submit"] {
 }
 
 .product-display li{
+  list-style: none;
   margin: 1% 1%;
 }
 
@@ -201,84 +299,55 @@ form button[type="submit"] {
   height: 50px;
 }
 
-
-
-.footer {
-  position: relative;
-  width: 100%;
-  z-index: 999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 6% 0;
-  margin-top: 50px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.footer .infos {
-  text-align: right;
-  color: #fff;
-  opacity: 1;
-  width: 50%;
-  margin-bottom: -1px;
-  padding: 0 4px;
-  font-size: 14px;
-}
-
-.footer .infos a {
-  color: inherit;
-  display: inline-block;
-}
-
-.footer span {
-  width: 40px;
-  display: inline-block;
-  text-align: center;
-}
-
-.footer .links {
-  width: 50%;
-  text-align: left;
-  padding: 0 4px;
-}
-
-.footer .links a {
-  display: inline-block;
-  margin: 0 15px;
-  color: #fff;
-  opacity: 1;
-  font-size: 14px;
-}
-
-.footer .links img {
-    width: 7%;
-}
-
-.footer .links a:first-child {
-  margin-left: 0;
-}
-
-@media (max-width: 991.98px) {
-  .footer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .footer .infos,
-  .footer .links {
+footer{
+    padding-bottom: 0;
+    background: #111;
+    height: auto;
     width: 100%;
+    color: #fff;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     text-align: center;
-    margin: 5px 0;
-  }
-  .footer span {
-    display: none;
-  }
+}
+.footer-content p{
+    padding-top: 1%;
+    margin: 3px 3px;
+    font-size: 14px;
+    color: white;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    margin: 1rem 0 3rem 0;
+    text-align: center;
+}
+
+.socials li{
+  margin: 0 15px;
+  padding-top: 7%;
+  padding-bottom: -7%;
+}
+
+.socials a{
+    text-decoration: none;
+    color: #fff;
+    border: 1.1px solid white;
+    padding: 30%;
+    border-radius: 50%;
+}
+.socials a i{
+    font-size: 1.1rem;
+    width: 20px;
+    transition: color .4s ease;
+}
+
+.socials a:hover i{
+    color: #ffe000;
 }
 
 .contacts h1{
