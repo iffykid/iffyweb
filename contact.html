@@ -3,6 +3,8 @@
   <head>
     <title>iffyweb-contact</title>
     <link rel="stylesheet" href="static/styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="javascript-file.js"></script>
   </head>
   <body>
     <header>
@@ -12,41 +14,47 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="comissions.html">Comissions</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">About Me</a></li>
           <li><a href="cart.html">Cart</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <h1>Contact Us</h1>
-      <form>
+      <div class="top-start">
+        <h1>ABOUT ME</h1>
+        <p>here is a little information about me</p>
+        <hr class="page-breaker">
+        <h2>Hi!</h2>
+        <div class="details-about">
+          <p>My name is Shaun a Computer Science and Graphic Designer. I have been interested in computer science for several years and have completed a number of courses in subjects such as artificial intelligence, software engineering, and data structures and algorithms.</p>
+          <p>In addition to my studies, I have also gained experience as a graphic designer, where I have worked on projects such as designing logos and banners, and rebranding company identities. I am proficient in a number of technical skills, including Java, HTML/CSS, and Adobe Photoshop, and am also fluent in English and and speak Afrikaans and Setswana.</p>
+          <p>I am passionate about using my skills and knowledge to create useful and innovative projects, such as my school project, a mobile application for alerting authorities of crimes in university communities. In my free time, I enjoy working on personal projects, such as building e-commerce websites and managing online businesses.</p>
+        </div>
+        <hr class="page-breaker">
+      </div>
+      <h2>Get in touch with me</h2>
+      <p>fill in the form and let me know what i can help you with</p>
+      <form class="contact-form">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" />
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" />
         <label for="message">Message:</label>
         <textarea id="message" name="message"></textarea>
-        <button type="submit">Send Message</button>
+        <button class="submit-button" >Send Message</button>
       </form>
     </main>
     <footer>
-      <div class="contacts">
-      <h1>Contact Us:</h1>
-        <img src="static/email.png" alt="EMAIL" >
-        <p>iffygraphics@gmail.com</p>
-      <h1>Follow us on social media:</h1>
-      </div>
-      <ul class= social-links>
-    <li>
-      <a href="https://instagram.com/"><img src="static/instagram.png" alt="Instagram"></a>
-    </li>
-    <li>
-      <a href="https://whatsapp.com/"><img src="static/whatsapp.png" alt="Facebook"></a>
-    </li>
-    <li>
-      <a href="https://facebook.com/"><img src="static/facebook.png" alt="Facebook"></a>
-    </li>
-  </ul>
-  </footer>
+          <div class="footer-content">
+              <p>feel free to contact or interact with us on any of my socials</p>
+              <ul class="socials">
+                  <li><a href="https://www.whatsapp.com/"><i class="fa fa-whatsapp"></i></a></li>
+                  <li><a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin-square"></i></a></li>
+              </ul>
+              <p>&copy; by iffy</p>
+          </div>
+      </footer>
   </body>
 </html>
