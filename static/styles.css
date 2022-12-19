@@ -328,7 +328,7 @@ footer{
 .socials{
     list-style: none;
     display: flex;
-    margin: 1rem 0 3rem 0;
+    margin: 0rem 0 1rem 0;
     text-align: center;
 }
 
@@ -530,28 +530,35 @@ hr{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 999; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 350px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #2a17bcff;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  border: none;
+  border-radius: 20px;
+  width: 70%;
+  height: auto;
+}
+.modal-content p{
+  text-align: center;
+  font-size: bold;
+  color: white;
 }
 
 /* The Close Button */
 .close {
-  color: #aaaaaa;
+  color: white;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -800,6 +807,49 @@ form button[type="submit"] {
   border-radius: 15px;
   font-size: 16px;
   height: 100px;
+
+}
+
+.findOut{
+ margin: center;
+}
+
+.findOut form{
+  margin-bottom: 60px;
+  padding: 20px 40px;
+
+}
+
+.findOut label{
+  color: white;
+  margin: 15px;
+}
+
+.findOut input{
+  border-radius: 15px;
+  border-color: white;
+  border-width: 4px;
+  color: white;
+}
+
+.findOut textarea{
+  border-radius: 15px;
+  height: 100px;
+  width: 100%
+}
+
+.findOut button[type=submit]{
+     background-color: black;
+     color: white;
+     padding: 3%;
+     margin: 10px 0;
+     border: none ;
+     cursor: pointer;
+     width: 30%;
+     opacity: 0.9;
+     border-radius: 18px;
+     font-size: 100%;
+     font-weight: bold;
 
 }
 

@@ -28,7 +28,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <p id="modalText" >Some text in the Modal..</p>
   </div>
 
 </div>
@@ -44,8 +44,8 @@
               </div>
               <h2>Logo Design</h2>
               <hr class ="page-breaker2">
-              <p>Logo design is a branding and marketing tool that can be used to signify a business.</p>
-              <button id="myBtn" onclick="openCloseModal();" >MORE INFO</button>
+              <p>Creating a visual symbol or emblem that represents a company, organization, or brand.simple, memorable, and versatile, and should accurately reflect the brand's values, personality, and target audience.</p>
+              <button id="myBtn" onclick="openCloseModal('logo-design');" >MORE INFO</button>
             </div>
 
             <div class="box box-red">
@@ -54,8 +54,8 @@
               </div>
               <h2>Web Design</h2>
               <hr>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda labore.</p>
-              <button id="my-button">MORE INFO</button>
+              <p>Creating and designing the appearance, layout, and functionality of a website. Using various tools and technologies, such as HTML, CSS, and JavaScript, to create a visually appealing and user-friendly website</p>
+              <button id="myBtn" onclick="openCloseModal('web-design')" >MORE INFO</button>
             </div>
 
             <div class="box box-grey">
@@ -64,8 +64,8 @@
               </div>
               <h2>Social Media Designs</h2>
               <hr>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda labore.</p>
-              <button id="my-button">MORE INFO</button>
+              <p>Creating visual content for social media platforms, such as Facebook, Instagram, and Twitter. Such as profile pictures, cover photos, posts, stories, and ads</p>
+              <button id="myBtn" onclick="openCloseModal('social-media');" >MORE INFO</button>
             </div>
 
             <div class="box box-grey">
@@ -74,8 +74,8 @@
               </div>
               <h2>Album Art/Graphic Edit</h2>
               <hr>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda labore.</p>
-              <button id="my-button">MORE INFO</button>
+              <p>Creating custom designs or compositions, or adding text or other elements to an image to create a wide range of images from album art, YouTube thumbnails/banners, wallpapers and promotional posters.</p>
+              <button id="myBtn" onclick="openCloseModal('aa-edit');" >MORE INFO</button>
             </div>
 
             <div class="box box-grey">
@@ -84,24 +84,29 @@
               </div>
               <h2>Customized Apparel</h2>
               <hr>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda labore.</p>
-              <button id="my-button">MORE INFO</button>
+              <p>Creating clothing that is designed and produced specifically for an individual or a brand. This includes mock up designs of graphic tees, t-shirts, hats, hoodies, and more for printing, embroidery digital printing to your specifi needs.</p>
+              <button id="myBtn" onclick="openCloseModal('customized-apparel');" >MORE INFO</button>
             </div>
-
           </div>
         </div>
         <hr class="page-breaker">
+        <h1>Not sure what youre looking for?</h1>
+        <p>let upload a similar image and a description and i will get in touch with you</p>
+        <div class="findOut">
+          <form action="/upload" method="post">
+            <label for="email">Enter Email:</label>
+            <input type="email" id="email" name="email" />
+            <label for="image">Select an image:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+            <label for="message">Enter a message:</label>
+            <textarea id="message" name="message"></textarea>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
     </main>
   </body>
   <footer>
         <div class="footer-content">
-            <p>feel free to contact or interact with us on any of my socials</p>
-            <ul class="socials">
-                <li><a href="https://www.whatsapp.com/"><i class="fab fa-whatsapp"></i></a></li>
-                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.linkedin.com/"><i class="fab fa-linkedin-square"></i></a></li>
-            </ul>
             <p>&copy; by iffy</p>
         </div>
     </footer>
