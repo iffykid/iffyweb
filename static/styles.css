@@ -3,8 +3,12 @@ body {
   font-family: sans-serif;
   color: #333;
   background: #1c1c1c;
-  background: linear-gradient(0deg, rgba(33,5,233,1) 0%, #1c1c1c 50%);
+  background-image: linear-gradient(0deg, rgba(33,5,233,1) 0%, #1c1c1c 50%);
+  animation: gradient 10s linear infinite;
+  background-size: 200% 100%;
+  background-position: left bottom;
 }
+
 
 header {
   background-color: #eee;
@@ -52,11 +56,15 @@ nav li {
 
 nav a {
   display: block;
-  padding: 20px 0px;
+  padding: 25px 3px;
   text-decoration: none;
   font-weight: bold;
   color: white;
   vertical-align: middle;
+}
+
+.logo-nav{
+  padding: 10px 0px;
 }
 
 nav a:hover {
@@ -68,7 +76,7 @@ main {
 }
 
 .top-start{
-  margin-top: 7%;
+  margin-top: 50px;
 }
 
 .top-start h1{
@@ -850,7 +858,16 @@ form button[type="submit"] {
      border-radius: 18px;
      font-size: 100%;
      font-weight: bold;
+}
 
+
+#product-image img {
+  max-width: 500px;
+}
+
+#product-details {
+  width: 300px;
+  text-align: center;
 }
 
 --black: #030103ff;

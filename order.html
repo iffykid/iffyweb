@@ -3,23 +3,108 @@
   <head>
     <title>iffyweb-order</title>
     <link rel="stylesheet" href="static/styles.css" />
+    <link rel="stylesheet" href="static/styles2.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="javascript-file.js"></script>
   </head>
-  <body>
-    <header>
+  <body class="style1">
       <nav>
         <ul>
-          <li><img src= "static/logo.png" id ="logo"></li>
+          <li><a class = "logo-nav" href="index.html"><img src= "static/logo.png" id ="logo"></a></li>
           <li><a href="index.html">Home</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="comissions.html">Comissions</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="cart.html">Cart</a></li>
+          <li><a href="contact.html">About Me</a></li>
         </ul>
       </nav>
-    </header>
+      <main>
+
+
+        <div class="order-container">
+        <div class="single-product">
+            <div class="row">
+                <div class="col-6">
+                    <div class="product-image">
+                        <div class="product-image-main">
+                            <img src="static/O Degrees Kendrick.jpg" alt="" id="product-main-image" >
+                        </div>
+                        <div class="product-image-slider">
+                            <img src="static/O Degrees Hoocies Black Kendrick B.jpg" alt=""  class="image-list" onclick="changeImage();">
+                            <img src="static/O Degrees Hoocies Black Kendrick F.jpg" alt=""  class="image-list" onclick="changeImage();">
+                            <img src="static/O Degrees Hoocies Black Kendrick.jpg" alt=""  class="image-list" onclick="changeImage();">
+                            <img src="static/O Degrees Kendrick.jpg" alt=""  class="image-list" onclick="changeImage();">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+
+                    <div class="product">
+                        <div class="product-title">
+                            <h2>Half Sleve T-shirt for Men</h2>
+                        </div>
+                        <div class="product-rating">
+                            <span><i class="bx bxs-star"></i></span>
+                            <span><i class="bx bxs-star"></i></span>
+                            <span><i class="bx bxs-star"></i></span>
+                            <span><i class="bx bxs-star"></i></span>
+                            <span><i class="bx bxs-star"></i></span>
+                        </div>
+                        <div class="product-price">
+                            <span class="offer-price">390.00 ZAR</span>
+                            <span class="sale-price">459.00 ZAR</span>
+                        </div>
+
+                        <div class="product-details">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos est magnam quibusdam maiores sit perferendis minima cupiditate iusto earum repudiandae maxime vitae nostrum, ea cumque iste ipsa hic commodi tempore.</p>
+                        </div>
+                        <div class="product-size">
+                            <h4>Size</h4>
+                            <div class="size-layout">
+                                <input type="radio" name="size" value="S" id="1" class="size-input">
+                                <label for="1" class="size">S</label>
+
+                                <input type="radio" name="size" value="M" id="2" class="size-input">
+                                <label for="2" class="size">M</label>
+
+                                <input type="radio" name="size" value="L" id="3" class="size-input">
+                                <label for="3" class="size">L</label>
+
+                                <input type="radio" name="size" value="XL" id="4" class="size-input">
+                                <label for="4" class="size">XL</label>
+
+                                <input type="radio" name="size" value="XXL" id="5" class="size-input">
+                                <label for="5" class="size">XXL</label>
+                            </div>
+                        </div>
+                        <div class="product-color">
+                            <h4>Color</h4>
+                            <div class="color-layout">
+                                <input type="radio" name="color"  value="black" class="color-input">
+                                <label for="black" class="black"></label>
+                                <input type="radio" name="color"  value="red" class="color-input">
+                                <label for="red" class="red"></label>
+
+                                <input type="radio" name="color"  value="blue" class="color-input">
+                                <label for="blue" class="blue"></label>
+                            </div>
+                        </div>
+                        <span class="divider"></span>
+
+                        <div class="product-btn-group">
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="product-container">
       <div class= product-display1>
-      <h1>Our Products</h1>
+      <h1>Similar Products</h1>
       <div class ="product-display1">
         <ul>
           <li>
@@ -44,5 +129,6 @@
         </div>
     </div>
     </div>
+  </main>
   </body>
 </html>

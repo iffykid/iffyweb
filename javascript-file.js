@@ -64,3 +64,41 @@ function openCloseModal(input) {
     }
   }
 }
+
+
+function processFormData(email, image, message) {
+  // Validate the email
+  if (!validateEmail(email)) {
+    alert('invalid email');
+    return 'Invalid email';
+  }
+
+  // Store the form data in variables
+  var emailField = email;
+  var imageField = image;
+  var messageField = message;
+
+  alert("thank you " + emailField)
+  return 'Form data stored';
+
+}
+
+function validateEmail(email) {
+  // Check if the email is in a valid format
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+
+
+function changeImage(frame) {
+  // Get the source of the image that was clicked
+  //alert("was clicked");
+  const sliderImageList = document.getElementsByClassName("image-list");
+  const mainImageElement = document.getElementById("product-main-image");
+
+  
+
+  // Set the main image to the source of the image that was clicked
+
+}

@@ -10,12 +10,11 @@
   <body class="style1">
     <nav>
       <ul>
-        <li><img src= "static/logo.png" id ="logo"></li>
+        <li><a class = "logo-nav" href="index.html"><img src= "static/logo.png" id ="logo"></a></li>
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Products</a></li>
         <li><a href="comissions.html">Comissions</a></li>
         <li><a href="contact.html">About Me</a></li>
-        <li><a href="cart.html">Cart</a></li>
       </ul>
     </nav>
     <main>
@@ -100,7 +99,7 @@
             <input type="file" id="image" name="image" accept="image/*">
             <label for="message">Enter a message:</label>
             <textarea id="message" name="message"></textarea>
-            <button type="submit">Submit</button>
+            <button type="submit" onclick="processFormData(email.value, image.value, message.value)">Submit</button>
           </form>
         </div>
     </main>
