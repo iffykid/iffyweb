@@ -54,7 +54,7 @@
     position: relative;
     display: block;
     height: 480px;
-    background: var(--bg-grey);
+    background: transparent;
     padding: 10px;
 }
 
@@ -63,7 +63,6 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-
 }
 
 .product-image-slider{
@@ -75,7 +74,6 @@
 .product-image-slider img{
     width: 90px;
     height: auto;
-    background: var(--bg-grey);
     padding: 6px;
     cursor: pointer;
     margin: auto;
@@ -92,8 +90,10 @@
 .product-title h2{
     font-size: 32px;
     line-height: 2.4rem;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.02rem;
+    color: #c6d612ff;
+    padding: 20px 0px;
 }
 
 /** Product price **/
@@ -107,7 +107,7 @@
 .product-price .offer-price{
     font-size: 48px;
     font-weight: 700;
-    color: #c6d612ff;
+    color: #0643b2;
 }
 .product-price .sale-price{
     font-size: 22px;
@@ -122,12 +122,13 @@
     margin: 10px 0;
 }
 .product-details h3{
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
 }
 .product-details p{
     margin: 5px 0;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.2rem;
 }
 
@@ -138,6 +139,7 @@
 .product-size h4{
     font-size: 16px;
     font-weight: 500;
+    color: white;
 }
 
 .product-size .size-layout{
@@ -168,7 +170,7 @@
 }
 
 .product-size .size-layout .size:hover{
-    border: 2px solid #2a17bcff;
+    border: 3px solid grey;
 }
 
 .product-size .size-layout input[type="radio"]:checked + .size{
@@ -187,6 +189,7 @@
 .product-color h4{
     font-size: 16px;
     font-weight: 500;
+    color: white;
 }
 .product-color .color-layout{
     margin: 5px 0;
@@ -204,19 +207,24 @@
 }
 
 .product-color .color-layout .black{
-
-    background-color: black;
+    background-color: #353535;
 }
 
 .product-color .color-layout .red{
-    background-color: red;
+    background-color: #e1e1e1;
 }
 .product-color .color-layout .blue{
-    background-color: blue;
+    background-color: #884f25;
 }
 
-.product-color .color-layout input[type="radio"]:checked + label{
+.product-color .color-layout :hover{
+    border: 2px solid grey;
+}
+
+.product-color .color-layout input[type="radio"]{
     box-shadow: 0 3px 6px var(--shadow);
+    border: 2px solid white;
+
 }
 
 .product-color .color-layout .color-input{

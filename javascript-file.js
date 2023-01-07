@@ -97,8 +97,25 @@ function changeImage(frame) {
   const sliderImageList = document.getElementsByClassName("image-list");
   const mainImageElement = document.getElementById("product-main-image");
 
-  
+
 
   // Set the main image to the source of the image that was clicked
 
 }
+
+
+window.addEventListener("load", function(){
+  setTimeout(
+    function open(event){
+      document.querySelector(".popup").style.display = "block";
+    },
+    2000
+  )
+});
+
+document.querySelector("#close").addEventListener("click", function(){
+  document.querySelector(".popup").style.display = "none";
+});
+
+
+//////////////////////////pop up popupWindow

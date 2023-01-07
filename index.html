@@ -9,14 +9,43 @@
   <body class="style1">
       <nav>
         <ul>
-          <li><a class = "logo-nav" href="index.html"><img src= "static/logo.png" id ="logo"></a></li>
+          <li><a class = "logo-nav" href="index.html"><img src= "static/iffy web logo.png" id ="logo"></a></li>
           <li><a href="index.html">Home</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="comissions.html">Comissions</a></li>
           <li><a href="contact.html">About Me</a></li>
         </ul>
       </nav>
+
+
+
+
     <main>
+        <div class="popup">
+          <button id="close">&times;</button>
+          <img src="static/iffy web empty.png" alt="">
+          <p>Thank you for visiting my website. We hope you find what you're looking for and enjoy your time here. Subscribe to promotion and notification list.</p>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" />
+          <a href="#">Subscribe</a>
+        </div>
+
+
+          <script type="text/javascript">
+          window.addEventListener("load", function(){
+            setTimeout(
+              function open(event){
+                document.querySelector(".popup").style.display = "block";
+              },
+              500
+            )
+          });
+
+          document.querySelector("#close").addEventListener("click", function(){
+            document.querySelector(".popup").style.display = "none";
+          });
+      </script>
+
       <div class="top-start">
         <h1>WELCOME</h1>
         <p>look for anything you like</p>
@@ -27,20 +56,19 @@
           <!-- Full-width images with number and caption text -->
           <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
-            <img src="static/card3.jpg" style="width:100%">
-            <div class="text"><button>FIND OUT MORE</button></div>
+            <img src="static/new-year.jpg" style="width:100%">
           </div>
 
           <div class="mySlides fade">
             <div class="numbertext">2 / 3</div>
-            <img src="static/card1.jpg" style="width:100%">
-            <div class="text"><button>FIND OUT MORE</button></div>
+            <img src="static/grim-reaper.jpg" style="width:100%">
+            <div class="text"><button>MORE INFO</button></div>
           </div>
 
           <div class="mySlides fade">
             <div class="numbertext">3 / 3</div>
-            <img src="static/card2.jpg" style="width:100%">
-            <div class="text"><button>FIND OUT MORE</button></div>
+            <img src="static/0-degrees.jpg" style="width:100%">
+            <div class="text"><button>MORE INFO</button></div>
           </div>
 
           <!-- Next and previous buttons -->
@@ -56,35 +84,70 @@
           <span class="dot" onclick="currentSlide(3)"></span>
         </div>
 <hr class="page-breaker">
+<h1>Featured Products</h1>
     <div class ="product-display">
-      <h1>Featured Products</h1>
-      <ul>
-        <li>
+
+
+        <div class="product-box">
           <img src="static/product1back.png"/>
           <h2>Product 1</h2>
           <p>$50.00</p>
           <button>Add to Cart</button>
-        </li>
-        <li>
+        </div>
+
+        <div class="product-box">
           <img src="static/product1back.png"/>
           <h2>Product 2</h2>
           <p>$75.00</p>
           <button>Add to Cart</button>
-        </li>
-        <li>
+        </div>
+
+        <div class="product-box">
           <img src="static/product1back.png"/>
           <h2>Product 3</h2>
           <p>$100.00</p>
           <button>Add to Cart</button>
-        </li>
-        <li>
+        </div>
+
+        <div class="product-box">
           <img src="static/product1back.png"/>
           <h2>Product 3</h2>
           <p>$100.00</p>
           <button>Add to Cart</button>
-        </li>
-      </ul>
+        </div>
+
+        <div class="product-box">
+          <img src="static/product1back.png"/>
+          <h2>Product 3</h2>
+          <p>$100.00</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-box">
+          <img src="static/product1back.png"/>
+          <h2>Product 3</h2>
+          <p>$100.00</p>
+          <button>Add to Cart</button>
+        </div>
+
       </div>
+
+      <hr class="page-breaker">
+      <h1>Let's talk.</h1>
+      <p>send me a message and i will get back to you as soon as i can</p>
+
+      <div class="findOut">
+        <form >
+          <label for="name">Enter Name:</label>
+          <input type="name" id="name" name="name" />
+          <label for="email">Enter Email:</label>
+          <input type="email" id="email" name="email" />
+          <label for="message">Enter a message:</label>
+          <textarea id="message" name="message"></textarea>
+          <button type="submit" onclick="processFormData(email.value, image.value, message.value)">Send</button>
+        </form>
+      </div>
+
     </main>
   </body>
   <footer>
