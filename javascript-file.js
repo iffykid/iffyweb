@@ -66,6 +66,29 @@ function openCloseModal(input) {
 }
 
 
+function notification(input) {
+  // Get the modal
+  //alert("working " + input);
+  var noty = document.getElementById("noty");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+    noty.style.display = "block";
+      const txt = document.getElementById("notification-text");
+      txt.textContent = " " + input;
+
+  span.onclick = function() {
+    noty.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == noty) {
+      noty.style.display = "none";
+    }
+  }
+}
+
+
 function processFormData(email, image, message) {
   // Validate the email
   if (!validateEmail(email)) {

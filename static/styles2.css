@@ -256,6 +256,12 @@
     font-size: 16px;
     font-weight: 500;
 }
+
+.product-btn-group button{
+  width: auto;
+}
+
+
 .product-btn-group .buy-now{
     background-color: var(--accent-color);
     color: #fff;

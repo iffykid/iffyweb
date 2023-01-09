@@ -12,13 +12,10 @@
           <li><a class = "logo-nav" href="index.html"><img src= "static/iffy web logo.png" id ="logo"></a></li>
           <li><a href="index.html">Home</a></li>
           <li><a href="products.html">Products</a></li>
-          <li><a href="comissions.html">Comissions</a></li>
+          <li><a href="comissions.html">Services</a></li>
           <li><a href="contact.html">About Me</a></li>
         </ul>
       </nav>
-
-
-
 
     <main>
         <div class="popup">
@@ -27,8 +24,16 @@
           <p>Thank you for visiting my website. We hope you find what you're looking for and enjoy your time here. Subscribe to promotion and notification list.</p>
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" />
-          <a href="#">Subscribe</a>
+          <a onclick="notification('Thank you for subscribing :)'); document.querySelector('.popup').style.display = 'none';" >Subscribe</a>
         </div>
+
+
+        <div id="noty" class="notification-box">
+        <div class="notification-content">
+          <span class="close" >&times;</span>
+          <p id="notification-text" >Some text in the Modal..</p>
+        </div>
+      </div>
 
 
           <script type="text/javascript">
@@ -154,11 +159,11 @@
         <div class="footer-content">
             <p>feel free to contact or interact with us on any of my socials</p>
             <ul class="socials">
-                <li><a href="https://www.gmail.com/"><i class="fa fa-envelope"></i></a></li>
-                <li><a href="https://www.whatsapp.com/"><i class="fa fa-whatsapp"></i></a></li>
-                <li><a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="https://www.twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin-square"></i></a></li>
+              <li><a href="mailto:iffy.graphics@gmail.com?subject=Inquiry"><i class="fa fa-envelope"></i></a></li>
+              <li><a href="https://wa.me/message/PGLHGNZ7WUXPA1"><i class="fa fa-whatsapp"></i></a></li>
+              <li><a href="https://www.instagram.com/iffy.graphics"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://twitter.com/iffygraphics?s=21"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/shaun-musodza-31b231181/"><i class="fa fa-linkedin-square"></i></a></li>
             </ul>
             <p>&copy; by iffy</p>
         </div>
