@@ -19,13 +19,28 @@
     </nav>
       <main>
 
-
         <div id="noty" class="notification-box">
         <div class="notification-content">
           <span class="close" >&times;</span>
           <p id="notification-text" >Some text in the Modal..</p>
         </div>
-      </div>
+        </div>
+
+
+        <div class="custom-info">
+          <h1>Lets Get Started</h1>
+          <hr>
+          <h2>Is it for a brand or individual?</h2>
+          <p class="smaller-info">if it is for a brand please contact me directly for bulk prices and further details.</p>
+          <hr>
+          <h2>Do you have a design?</h2>
+          <p>If you have a design please upload the design Please indicate if the design has both a back print and a front print. A preview of your design will be shown below.</p>
+          <p class="smaller-info">only the following file formats are accepptade: png, jpg and pdf.</p>
+          <p>If you do not have a design and would like a design please indicate what type of design you would want and I will get in contact with you regarding the design you wish to have.</p>
+          <hr>
+          <h2>Almost Done</h2>
+          <p>A prievew of your order is shown below</p>
+        </div>
 
 
         <div class="order-container">
@@ -34,13 +49,11 @@
                 <div class="col-6">
                     <div class="product-image">
                         <div class="product-image-main">
-                            <img src="hoodiesandtees/aaliyah-black.png" alt="" id="product-main-image" >
+                            <img src="poster/Lauren Hill copy.jpg" alt="" id="product-main-image">
                         </div>
                         <div class="product-image-slider">
-                            <img src="hoodiesandtees/aaliyah-brown.png" alt="1"  class="image-list" onclick="changeImage();">
-                            <img src="hoodiesandtees/aaliyah-brown.png" alt="2"  class="image-list" onclick="changeImage();">
-                            <img src="hoodiesandtees/aaliyah-brown.png" alt="3"  class="image-list" onclick="changeImage();">
-                            <!--img src="static/O Degrees Kendrick.jpg" alt="4"  class="image-list" onclick="changeImage();"-->
+                            <img src="static/O Degrees Hoocies Black Kendrick B.jpg" id = "img1"  class="image-list" onclick="changeImage('img1');">
+                            <img src="static/O Degrees Hoocies Black Kendrick F.jpg" id ="img2"  class="image-list" onclick="changeImage('img2');">
                         </div>
                     </div>
                 </div>
@@ -48,23 +61,16 @@
 
                     <div class="product">
                         <div class="product-title">
-                            <h2>Aaliya Hoodie</h2>
-                        </div>
-                        <div class="product-rating">
-                            <span><i class="bx bxs-star"></i></span>
-                            <span><i class="bx bxs-star"></i></span>
-                            <span><i class="bx bxs-star"></i></span>
-                            <span><i class="bx bxs-star"></i></span>
-                            <span><i class="bx bxs-star"></i></span>
+                            <h2>Custom Hoodie/Tshirt</h2>
                         </div>
                         <div class="product-price">
-                            <span class="offer-price">390.00 ZAR</span>
-                            <span class="sale-price">459.00 ZAR</span>
+                            <span class="offer-price">00.00 ZAR</span>
+                          <!--span class="sale-price">150.00 ZAR</span-->
                         </div>
-
                         <div class="product-details">
-                            <h3>Description</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos est magnam quibusdam maiores sit perferendis minima cupiditate iusto earum repudiandae maxime vitae nostrum, ea cumque iste ipsa hic commodi tempore.</p>
+                            <h3>Disclamer</h3>
+                            <p>Please indicate correct contact details as i will confirm the quality of your upload and any further details for your order. Not all custom orders can be fufilled so to ensure you recieve
+                            a good product I will have to confirm everything.</p>
                         </div>
                         <div class="product-size">
                             <h4>Size</h4>
@@ -85,58 +91,30 @@
                                 <label for="5" class="size">XXL</label>
                             </div>
                         </div>
+
                         <div class="product-color">
                             <h4>Color</h4>
                             <div class="color-layout">
                                 <input type="radio" name="color"  value="black" class="color-input">
                                 <label for="black" class="black"></label>
-                                <input type="radio" name="color"  value="red" class="color-input">
+                                <input type="radio" name="color"  value="white" class="color-input">
                                 <label for="red" class="red"></label>
-
-                                <input type="radio" name="color"  value="blue" class="color-input">
-                                <label for="blue" class="blue"></label>
                             </div>
                         </div>
+
                         <span class="divider"></span>
 
                         <div class="product-btn-group">
-                            <button onclick="notification('your order has been placed. Thank You :)')" >Order Now</button>
-                        </div>
+                            <a>
+                              <button onclick="notification('your order has been successfuly submitted. Thank you :)')" >Submit Order</button>
+                            </a>
+                          </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-    <div class="product-container">
-      <div class= product-display1>
-      <h1>Similar Products</h1>
-      <div class ="product-display1">
-        <ul>
-          <li>
-            <img src="static/product1back.png"/>
-            <h2>Product 1</h2>
-            <p>$50.00</p>
-            <button>View Item</button>
-          </li>
-          <li>
-            <img src="static/product1back.png"/>
-            <h2>Product 2</h2>
-            <p>$75.00</p>
-            <button>View Item</button>
-          </li>
-          <li>
-            <img src="static/product1back.png"/>
-            <h2>Product 3</h2>
-            <p>$100.00</p>
-            <button>View Item</button>
-          </li>
-        </ul>
-        </div>
-    </div>
-    </div>
   </main>
   </body>
 </html>

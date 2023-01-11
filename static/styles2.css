@@ -224,7 +224,6 @@
 .product-color .color-layout input[type="radio"]{
     box-shadow: 0 3px 6px var(--shadow);
     border: 2px solid white;
-
 }
 
 .product-color .color-layout .color-input{
@@ -361,4 +360,42 @@
         flex-direction: column;
         gap: 10px;
     }
+}
+
+
+.custom-info{
+  padding-top: 45px;
+  padding-bottom: 0;
+}
+
+.custom-info hr{
+  margin-top: 25px;
+  margin-bottom: 20px;
+  display: block;
+  width: 80%;
+  border: 1px solid white;
+  border-radius: 0;
+}
+
+.custom-info h1{
+  padding-left: 30px;
+  font-size: 30px;
+}
+
+.custom-info h2{
+  padding-left: 30px;
+  padding-top: 0px;
+  font-size: 20px;
+}
+
+.custom-info p{
+  padding-left: 30px;
+  font-size: 18;
+}
+
+.custom-info .smaller-info {
+  font-style: italic;
+  font-size: 16px;
+  color: #bf0fb1ff;
+  text-align: center;
 }

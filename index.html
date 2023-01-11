@@ -18,14 +18,14 @@
       </nav>
 
     <main>
-        <div class="popup">
+        <!--div class="popup">
           <button id="close">&times;</button>
           <img src="static/iffy web empty.png" alt="">
           <p>Thank you for visiting my website. We hope you find what you're looking for and enjoy your time here. Subscribe to promotion and notification list.</p>
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" />
           <a onclick="notification('Thank you for subscribing :)'); document.querySelector('.popup').style.display = 'none';" >Subscribe</a>
-        </div>
+        </div-->
 
 
         <div id="noty" class="notification-box">
@@ -36,7 +36,8 @@
       </div>
 
 
-          <script type="text/javascript">
+        <script type="text/javascript">
+
           window.addEventListener("load", function(){
             setTimeout(
               function open(event){
@@ -49,6 +50,7 @@
           document.querySelector("#close").addEventListener("click", function(){
             document.querySelector(".popup").style.display = "none";
           });
+
       </script>
 
       <div class="top-start">
@@ -56,6 +58,8 @@
         <p>look for anything you like</p>
       </div>
       <hr class="page-breaker">
+
+
         <!-- Slideshow container -->
         <div class="slideshow-container">
           <!-- Full-width images with number and caption text -->
@@ -88,51 +92,63 @@
           <span class="dot" onclick="currentSlide(2)"></span>
           <span class="dot" onclick="currentSlide(3)"></span>
         </div>
+
+        <script>
+        let slideIndex = 0;
+        showSlides();
+        </script>
+
+
 <hr class="page-breaker">
 <h1>Featured Products</h1>
     <div class ="product-display">
 
-
         <div class="product-box">
-          <img src="static/product1back.png"/>
-          <h2>Product 1</h2>
-          <p>$50.00</p>
-          <button>Add to Cart</button>
+          <img src="hoodiesandtees/aaliyah-black.png" onclick= "window.open('order.html')"/>
+          <h2>'Aaliya' Hoodie</h2>
+          <span class="offer-price">390.00 ZAR</span>
+          <span class="sale-price">459.00 ZAR</span>
+          <button onclick="window.open('order.html')">Order</button>
         </div>
 
         <div class="product-box">
-          <img src="static/product1back.png"/>
-          <h2>Product 2</h2>
-          <p>$75.00</p>
-          <button>Add to Cart</button>
+          <img src="hoodiesandtees/unknown-white.png" onclick= "window.open('order.html')"/>
+          <h2>'Unknown' Tee</h2>
+          <span class="offer-price">190.00 ZAR</span>
+          <span class="sale-price">235.00 ZAR</span>
+          <button onclick= "window.open('order.html')">Order</button>
         </div>
 
         <div class="product-box">
-          <img src="static/product1back.png"/>
-          <h2>Product 3</h2>
-          <p>$100.00</p>
-          <button>Add to Cart</button>
+          <img src="hoodiesandtees/anarchy-white.png" onclick= "window.open('order.html')"/>
+          <h2>'Anarchy' Hoodie</h2>
+          <span class="offer-price">390.00 ZAR</span>
+          <span class="sale-price">459.00 ZAR</span>
+          <button onclick= "window.open('order.html')">Order</button>
         </div>
 
         <div class="product-box">
-          <img src="static/product1back.png"/>
-          <h2>Product 3</h2>
-          <p>$100.00</p>
-          <button>Add to Cart</button>
+          <img src="hoodiesandtees/kobe-black.png" onclick= "window.open('order.html')"/>
+          <h2>'Kobe Bryant' Tee</h2>
+          <span class="offer-price">190.00 ZAR</span>
+          <span class="sale-price">235.00 ZAR</span>
+          <button onclick= "window.open('order.html')">Order</button>
         </div>
 
         <div class="product-box">
-          <img src="static/product1back.png"/>
-          <h2>Product 3</h2>
-          <p>$100.00</p>
-          <button>Add to Cart</button>
+          <img src="poster/Pelé .jpg" onclick= "window.open('order-posters.html')"/>
+          <h2>'Pele' Wallpaper</h2>
+          <span class="offer-price">00.00 ZAR</span>
+          <span class="sale-price">100.00 ZAR</span>
+          <button onclick= "window.open('order-posters.html')">Buy</button>
         </div>
 
         <div class="product-box">
-          <img src="static/product1back.png"/>
-          <h2>Product 3</h2>
-          <p>$100.00</p>
-          <button>Add to Cart</button>
+          <img src="brands/CTFC-blue.jpg"/>
+          <h2>'CTFC' Cap</h2>
+          <span class="offer-price">390.00 ZAR</span>
+          <span class="sale-price">459.00 ZAR</span>
+          <button>Order</button>
         </div>
 
       </div>
