@@ -168,4 +168,13 @@ document.querySelector("#close").addEventListener("click", function(){
 });
 
 
-//////////////////////////pop up popupWindow
+////////////////////////// product handler
+
+function changeProduct(productId) {
+  var productTitle = document.querySelector(".product-title");
+  var productImage = document.querySelector(".product-image-main");
+
+      productTitle.innerHTML = "Product 1";
+      productImage.src = "product1.jpg";
+
+}

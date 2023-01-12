@@ -410,11 +410,25 @@ button:hover{
   text-align: center;
 }
 
+ #smaller-products .product-box{
+  width: 25%;
+  padding: 5px 10px;
+  align-items: center;
+  text-align: center;
+}
+
 
 @media (max-width: 800px) {
   .product-display .product-box{
     width: 50%;
   }
+
+  #smaller-products .product-box{
+   width: 50%;
+   padding: 5px 10px;
+   align-items: center;
+   text-align: center;
+ }
 }
 
 .product-display .product-box img{
