@@ -343,7 +343,11 @@ button:hover{
   to {opacity: 1}
 }
 
-.product-display1{
+.product-display1 .product-display .product-box{
+  width: 25%;
+  padding: 5px 10px;
+  align-items: center;
+  text-align: center;
 }
 
 .product-display1 ul {
@@ -354,26 +358,18 @@ button:hover{
 }
 
 @media only screen and (min-width: 1200px) {
-  .product-display1 ul {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 30px;
-    margin: 0 auto;
-  }
 }
 
 @media only screen and (max-width: 1199px) {
-  .product-display1 ul {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    margin: 0 auto;
-  }
 
 }
 
 @media only screen and (max-width: 800px) {
-  .product-display1 ul {
-    grid-template-columns: 1fr ;
-    margin: 0 auto;
+  .product-display1 .product-display .product-box{
+    width: 50%;
+    padding: 5px 10px;
+    align-items: center;
+    text-align: center;
   }
 }
 
