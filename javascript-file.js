@@ -128,16 +128,29 @@ function validateEmail(email) {
 
 
 function changeImage(id_name) {
-  // Get the source of the image that was clicked
+const sliderMainImage = document.getElementById("product-main-image"); //product container image
+const sliderImageList = document.getElementsByClassName("image-list"); // image thumblian group selection
+console.log(sliderImageList);
 
-  let sliderImageList = document.getElementById(id_name);
-  let mainImageElement = document.getElementById("product-main-image");
-  //alert("was clicked");
-  // Set the main image to the source of the image that was clicked
-  let fetch = sliderImageList.src;
+sliderImageList[0].onclick = function(){
+    sliderMainImage.src = sliderImageList[0].src;
+    console.log(sliderMainImage.src);
+};
 
-  sliderImageList = mainImageElement.src;
-  mainImageElement = fetch;
+sliderImageList[1].onclick = function(){
+    sliderMainImage.src = sliderImageList[1].src;
+    console.log(sliderMainImage.src);
+};
+
+sliderImageList[2].onclick = function(){
+    sliderMainImage.src = sliderImageList[2].src;
+    console.log(sliderMainImage.src);
+};
+
+sliderImageList[3].onclick = function(){
+    sliderMainImage.src = sliderImageList[3].src;
+    console.log(sliderMainImage.src);
+};
 }
 
 

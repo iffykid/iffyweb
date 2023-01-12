@@ -66,6 +66,12 @@ nav li {
   text-align: center;
 }
 
+.active-nav {
+  color: #0643b2;
+
+}
+
+
 nav a {
   display: block;
   padding: 25px 3px;
@@ -73,6 +79,16 @@ nav a {
   font-weight: bold;
   color: white;
   vertical-align: middle;
+  transition: color 0.5 ease;
+}
+
+.logo-nav{
+  padding: 10px 0px;
+}
+
+nav a:hover {
+  color: #ffe000;
+
 }
 
 .logo-nav{
@@ -121,6 +137,31 @@ button {
 button:hover{
   background-color: white;
   color: black;
+}
+
+.in-menu{
+  padding-top: 30px;
+}
+
+.in-menu a{
+  display: block;
+  text-transform: lowercase;
+  color: grey;
+  font-size: 30px;
+  font-weight: bold;
+  transition: color 0.5s ease;
+  transition: font-size 0.8s ease;
+  padding: 4px 8%;
+  text-decoration: none;
+}
+
+
+
+.in-menu a:hover{
+  cursor: pointer;
+  text-transform: uppercase;
+  color: white;
+  font-size: 50px;
 }
 
 .notification-box{
