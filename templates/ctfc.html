@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cape Town FC</title>
+  <link rel="stylesheet" href="../static/styles3.css" />
+  <script src="../javascript-file.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  <script src="../javascript-datahandler.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+</head>
+<body>
+  <header>
+    <div class="image-container">
+      <img  src="../static/Cape Town Fishing Embroided copy.png" id="ctfc-logo" alt="2">
+    </div>
+  </header>
+  <script type="text/javascript">
+    function displayInfo(id) {
+      var content = document.getElementById(id + "-content");
+      content.style.display = "block";
+    }
+
+    function hideInfo(id){
+      var content = document.getElementById(id + "-content");
+      content.style.display = "none";
+    }
+
+  </script>
+  <main>
+
+    <div class="ocean">
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
+
+
+
+    <div class="info-nav">
+      <h3 id="heading1" onclick="displayInfo('heading1'); hideInfo('heading2'); hideInfo('heading3')">JOIN NOW</h3>
+      <div class="content" id="heading1-content">
+        <p>ENTER YOUR EMAIL</p>
+        <input type="email" name="email" value="">
+        <br><br>
+        <button type="button" name="submit-email">JOIN</button>
+      </div>
+
+      <h3 id="heading2" onclick="displayInfo('heading2'); hideInfo('heading1'); hideInfo('heading3')">ABOUT THE CLUB</h3>
+      <div class="content" id="heading2-content">
+        <div class="center-justify">
+        <p>In 1976, a group of avid fishermen in Cape Town, South Africa, came together to form the Cape Town Fishing Club. The founding members were passionate about their hobby and wanted to share their love of fishing with others. They quickly grew in number and soon became one of the most popular fishing clubs in the region.</p>
+        <p>Years passed and the members of the club aged, but their passion for fishing never faded. They passed down their skills and knowledge to the next generation of fishermen, ensuring that the club's traditions and spirit would live on. Today, the Cape Town Fishing Club is still going strong, with its members sharing the same love of fishing and camaraderie that brought them together all those years ago.</p>
+        <p>As the sun rises each morning and the sound of the waves lapping against the pier fills the air, the members of the Cape Town Fishing Club cast their lines, knowing that they are part of a special community with a rich history and a passion for fishing that will endure for generations to come.</p>
+        </div>
+      </div>
+
+      <h3 id="heading3" onclick="displayInfo('heading3'); hideInfo('heading1'); hideInfo('heading2')">JUMP BACK IN</h3>
+      <div class="content" id="heading3-content">
+        <p>MEMBER EMAIL</p>
+        <input type="email" name="email" value=""></div>
+
+    </div>
+
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>

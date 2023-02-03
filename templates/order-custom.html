@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iffyweb-order</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="stylesheet" href="../static/styles2.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../javascript-file.js"></script>
+  </head>
+  <body class="style1">
+    <nav>
+      <ul>
+        <li><a class = "logo-nav" href="index.html"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
+        <li><a href="index.html" class="active-nav">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="comissions.html">Services</a></li>
+        <li><a href="contact.html">About Me</a></li>
+        <li><a href="account.html">Account</a><li>
+      </ul>
+    </nav>
+      <main>
+
+        <div id="noty" class="notification-box">
+        <div class="notification-content">
+          <span class="close" >&times;</span>
+          <p id="notification-text" >Some text in the Modal..</p>
+        </div>
+        </div>
+
+
+        <div class="custom-info">
+          <h1>Lets Get Started</h1>
+          <hr>
+          <h2>Is it for a brand or individual?</h2>
+          <p class="smaller-info">if it is for a brand please contact me directly for bulk prices and further details.</p>
+          <hr>
+          <h2>Do you have a design?</h2>
+          <p>If you have a design please upload the design Please indicate if the design has both a back print and a front print. A preview of your design will be shown below.</p>
+          <p class="smaller-info">only the following file formats are accepptade: png, jpg and pdf.</p>
+          <div class="upload-file">
+            <label for="single-side">SINGLE SIDED PRINT</label>
+            <input type="checkbox" id="single-side" >
+            <label for="front-back">FRONT AND BACK PRINT</label>
+            <input type="checkbox" id="front-back" >
+            <form onclick="alert('file submitted')">
+              <input type="file" id="myFile" name="filename">
+              <input type="submit">
+            </form>
+          </div>
+          <!--div class="custom-upload">
+            <label for="back-design">BACK DESIGN</label>
+            <input type="file" id="back-design" onchange="replaceImage('front-design', 'design')">
+          </div-->
+          <p>If you do not have a design and would like a design please indicate what type of design you would want and I will get in contact with you regarding the design you wish to have.</p>
+          <hr>
+          <h2>Almost Done</h2>
+          <p>A prievew of your order is shown below</p>
+        </div>
+
+        <script>
+        function uploadImage() {
+    // get the input element and the selected file
+    var input = document.getElementById("single-side");
+    var file = input.files[0];
+
+    // create a new FileReader object
+    var reader = new FileReader();
+
+    // read the file as a data URL
+    reader.readAsDataURL(file);
+
+    // when the file is read, create an Image object and add it to the DOM
+    reader.onload = function() {
+      var dataURL = reader.result;
+      var newImage = new Image();
+      newImage.src = dataURL;
+      var existingImage = document.getElementById("design");
+
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(existingImage, 0, 0);
+      ctx.drawImage(newImage, 0, 0);
+
+      existingImage.src = canvas.toDataURL();
+    }
+  }
+        </script>
+
+
+        <div class="order-container">
+        <div class="single-product">
+            <div class="row">
+                <div class="col-6">
+                  <div class="parent-container">
+                    <div class="customs-image">
+                      <div class="one-side-mock">
+                        <img src="../static/h-front.png" id="h-mock">
+                        <img src="" id="design" alt="DESIGN FRONT">
+                      </div>
+                    </div>
+                      <!--div class="customs-image">
+                        <div class="one-side-mock">
+                          <img src="static/h-front.png" id="h-mock">
+                          <img src="static/logo.png" id="design" alt="DESIGN FRONT">
+                        </div>
+                      </div-->
+                    </div>
+                </div>
+                <div class="col-6">
+
+                    <div class="product">
+                        <!--div class="product-title">
+                            <h2>Custom Hoodie/Tshirt</h2>
+                        </div-->
+                        <div class="product-price">
+                            <span class="offer-price">00.00 ZAR</span>
+                          <!--span class="sale-price">150.00 ZAR</span-->
+                        </div>
+                        <div class="product-details">
+                            <h3>Disclamer</h3>
+                            <p>Please indicate correct contact details as i will confirm the quality of your upload and any further details for your order. Not all custom orders can be fufilled so to ensure you recieve
+                            a good product I will have to confirm everything.</p>
+                        </div>
+                        <div class="product-size">
+                            <h4>Size</h4>
+                            <div class="size-layout">
+                                <input type="radio" name="size" value="S" id="1" class="size-input">
+                                <label for="1" class="size">S</label>
+
+                                <input type="radio" name="size" value="M" id="2" class="size-input">
+                                <label for="2" class="size">M</label>
+
+                                <input type="radio" name="size" value="L" id="3" class="size-input">
+                                <label for="3" class="size">L</label>
+
+                                <input type="radio" name="size" value="XL" id="4" class="size-input">
+                                <label for="4" class="size">XL</label>
+
+                                <input type="radio" name="size" value="XXL" id="5" class="size-input">
+                                <label for="5" class="size">XXL</label>
+                            </div>
+                        </div>
+
+                        <div class="product-color">
+                            <h4>Color</h4>
+                            <div class="color-layout">
+                                <input type="radio" name="color"  value="black" class="color-input">
+                                <label for="black" class="black"></label>
+                                <input type="radio" name="color"  value="white" class="color-input">
+                                <label for="red" class="red"></label>
+                            </div>
+                        </div>
+
+                        <span class="divider"></span>
+
+                        <div class="product-btn-group">
+                            <a>
+                              <button onclick="notification('your order has been successfuly submitted. Thank you :)')" >Submit Order</button>
+                            </a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </main>
+  </body>
+</html>

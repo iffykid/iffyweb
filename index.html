@@ -2,30 +2,36 @@
 <html>
   <head>
     <title>iffyweb</title>
-    <link rel="stylesheet" href="static/styles.css" />
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="stylesheet" href="../static/styles2.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="javascript-file.js"></script>
+    <script src="../javascript-file.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../javascript-datahandler.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!--script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5448240102707851"crossorigin="anonymous"></script-->
   </head>
   <body class="style1">
       <nav>
         <ul>
-          <li><a class = "logo-nav" href="index.html"><img src= "static/iffy web logo.png" id ="logo"></a></li>
+          <li><a class = "logo-nav" href="index.html"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
           <li><a href="index.html" class="active-nav">Home</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="comissions.html">Services</a></li>
-          <li><a href="contact.html">About Me</a></li>
+          <li><a href="templates/products.html">Products</a></li>
+          <li><a href="../templates/comissions.html">Services</a></li>
+          <li><a href="../templates/contact.html">About Me</a></li>
+          <li><a href="../templates/account.html" onclick="/account">Account</a><li>
         </ul>
       </nav>
 
     <main>
-        <div class="popup">
+        <!--div class="popup">
           <button id="close">&times;</button>
           <img src="static/iffy web empty.png" alt="">
           <p>Thank you for visiting my website. We hope you find what you're looking for and enjoy your time here. Subscribe to promotion and notification list.</p>
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" />
           <a onclick="notification('Thank you for subscribing :)'); document.querySelector('.popup').style.display = 'none';" >Subscribe</a>
-        </div>
+        </div-->
 
 
         <div id="noty" class="notification-box">
@@ -36,9 +42,11 @@
       </div>
 
 
-        <script type="text/javascript">
+        <script>
+      //reCaptcha
 
-          window.addEventListener("load", function(){
+
+          /*window.addEventListener("load", function(){
             setTimeout(
               function open(event){
                 document.querySelector(".popup").style.display = "block";
@@ -49,55 +57,74 @@
 
           document.querySelector("#close").addEventListener("click", function(){
             document.querySelector(".popup").style.display = "none";
-          });
+          });*/
+          // Select the form element
+          const inform = document.getElementById("inquiryForm");
+
+          // Add an event listener to the form's submit event
+          inform.addEventListener("submit", function(event) {
+            var name = document.getElementById("inq-name").value;
+            var email = document.getElementById("inq-email").value;
+            var message = document.getElementById("inq-message").value;
+
+            console.log(message);
+            inqSubmit(name, email, message);
+            notification('Your message was successfully sent.');
+            });
 
       </script>
 
       <div class="top-start">
         <h1>WELCOME</h1>
-        <p>look for anything you like</p>
+        <p >to iffyweb</p>
       </div>
-      <hr class="page-breaker">
 
 
         <!-- Slideshow container -->
         <div class="slideshow-container">
           <!-- Full-width images with number and caption text -->
           <div class="mySlides fade">
-            <div class="numbertext">1 / 4</div>
-            <img src="static/new-year.jpg" style="width:100%">
+            <div class="numbertext">1 / 5</div>
+            <img src="../static/new-year.jpg" style="width:100%">
           </div>
 
           <div class="mySlides fade">
-            <div class="numbertext">2 / 4</div>
-            <img src="static/grim-reaper.jpg" style="width:100%">
-            <div class="text"><button>MORE INFO</button></div>
+            <div class="numbertext">2 / 5</div>
+            <img src="../static/OnlineShoppingNotice.jpg" style="width:100%">
+            <div class="text"></div>
           </div>
 
           <div class="mySlides fade">
-            <div class="numbertext">3 / 4</div>
-            <img src="static/0-degrees.jpg" style="width:100%">
-            <div class="text"><button>MORE INFO</button></div>
+            <div class="numbertext">3 / 5</div>
+            <img src="../static/grim-reaper.jpg" style="width:100%">
+            <div class="text"></div>
           </div>
 
           <div class="mySlides fade">
-            <div class="numbertext">4 / 4</div>
-            <img src="static/CTFC 2.jpg" style="width:100%">
-            <div class="text"><button>JOIN</button></div>
+            <div class="numbertext">4 / 5</div>
+            <img src="../static/0-degrees.jpg" style="width:100%">
+            <div class="text"><button>SHOP NOW</button></div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">5 / 5</div>
+            <img src="../static/CTFC 2.jpg" style="width:100%">
+            <div class="text"><button onclick="window.open('../templates/ctfc.html');">JOIN</button></div>
           </div>
 
           <!-- Next and previous buttons -->
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <!--a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a-->
         </div>
         <br>
 
         <!-- The dots/circles -->
         <div style="text-align:center">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" ></span>
+          <span class="dot" ></span>
+          <span class="dot" ></span>
+          <span class="dot" ></span>
+          <span class="dot" ></span>
         </div>
 
         <script>
@@ -106,84 +133,85 @@
         </script>
 
 <div class="in-menu">
-  <a href="products.html#hoodies">Hoodies</a>
-  <a href="products.html#tees">Tees</a>
-  <a href="products.html#posters">Posters</a>
-  <a href="comissions.html#graphic-design">Graphic Designing</a>
-  <a href="comissions.html#web-design">Web Designing</a>
-  <a href="products.html#customs">Custom Hoodies</a>
-  <a href="products.html#customs">Contact ME</a>
+  <a href="../templates/products.html#hoodies">Hoodies</a>
+  <a href="../templates/products.html#tees">Tees</a>
+  <a href="../templates/products.html#posters">Posters</a>
+  <a href="../templates/comissions.html#graphic-design">Graphic Designing</a>
+  <a href="../templates/comissions.html#web-design">Web Designing</a>
+  <a href="../templates/products.html#customs">Custom Hoodies</a>
+  <a href="../templates/products.html#customs">Contact ME</a>
 </div>
 
 <hr class="page-breaker">
 
-<h1>Featured Products</h1>
-    <div class ="product-display">
+<h1>Popular Products</h1>
+<div class ="product-display" id="smaller-products">
+    <div class="product-box">
+      <img src="../hoodiesandtees/reece-white.png" onclick= "window.open('order.html'); getProduct('A-Reece Hoodie');"/>
+      <h2>A-Reece Hoodie</h2>
+      <span class="offer-price">416.50 ZAR</span>
+      <span class="sale-price">490.00 ZAR</span>
+      <button onclick="window.open('../templates/order.html'); getProduct('A-Reece Hoodie');">Order</button>
+    </div>
 
-        <div class="product-box">
-          <img src="hoodiesandtees/aaliyah-black.png" onclick= "window.open('order.html')"/>
-          <h2>'Aaliya' Hoodie</h2>
-          <span class="offer-price">390.00 ZAR</span>
-          <span class="sale-price">459.00 ZAR</span>
-          <button onclick="window.open('order.html')">Order</button>
-        </div>
+    <div class="product-box">
+      <img src="../hoodiesandtees/boondocksblack.png" onclick= onclick= "window.open('order.html'); getProduct('The Boondocks Tee');"/>
+      <h2>The Boondocks Tee</h2>
+      <span class="offer-price">197.37 ZAR</span>
+      <span class="sale-price">232.20 ZAR</span>
+      <button onclick= "window.open('../templates/order.html'); getProduct('The Boondocks Tee');">Order</button>
+    </div>
 
-        <div class="product-box">
-          <img src="hoodiesandtees/unknown-white.png" onclick= "window.open('order.html')"/>
-          <h2>'Unknown' Tee</h2>
-          <span class="offer-price">190.00 ZAR</span>
-          <span class="sale-price">235.00 ZAR</span>
-          <button onclick= "window.open('order.html')">Order</button>
-        </div>
+    <div class="product-box">
+      <img src="../poster/pele-poster.jpg" onclick= "window.open('order-posters.html'); getProduct('Pele Poster');"/>
+      <h2>'Pele Poster</h2>
+      <span class="offer-price">00.00 ZAR</span>
+      <span class="sale-price">50.00 ZAR</span>
+      <button onclick= "window.open('../templates/order-posters.html'); getProduct('Pele Poster');">Buy</button>
+    </div>
 
-        <div class="product-box">
-          <img src="hoodiesandtees/anarchy-white.png" onclick= "window.open('order.html')"/>
-          <h2>'Anarchy' Hoodie</h2>
-          <span class="offer-price">390.00 ZAR</span>
-          <span class="sale-price">459.00 ZAR</span>
-          <button onclick= "window.open('order.html')">Order</button>
-        </div>
+    <div class="product-box">
+      <img src="../hoodiesandtees/kobe-black.png" onclick= "window.open('order.html'); getProduct('Kobe Bryant Tee');"/>
+      <h2>'Kobe Bryant' Tee</h2>
+      <span class="offer-price">197.37 ZAR</span>
+      <span class="sale-price">232.20 ZAR</span>
+      <button onclick= "window.open('../templates/order.html'); getProduct('Kobe Bryant Tee');">Order</button>
+    </div>
 
-        <div class="product-box">
-          <img src="hoodiesandtees/kobe-black.png" onclick= "window.open('order.html')"/>
-          <h2>'Kobe Bryant' Tee</h2>
-          <span class="offer-price">190.00 ZAR</span>
-          <span class="sale-price">235.00 ZAR</span>
-          <button onclick= "window.open('order.html')">Order</button>
-        </div>
 
-        <div class="product-box">
-          <img src="poster/Pelé .jpg" onclick= "window.open('order-posters.html')"/>
-          <h2>'Pele' Wallpaper</h2>
-          <span class="offer-price">00.00 ZAR</span>
-          <span class="sale-price">100.00 ZAR</span>
-          <button onclick= "window.open('order-posters.html')">Buy</button>
-        </div>
-
-        <div class="product-box">
-          <img src="brands/CTFC-blue.jpg"/>
-          <h2>'CTFC' Cap</h2>
-          <span class="offer-price">390.00 ZAR</span>
-          <span class="sale-price">459.00 ZAR</span>
-          <button>Order</button>
-        </div>
-
-      </div>
+  </div>
 
       <hr class="page-breaker">
 
       <h1>Let's talk.</h1>
       <p>send me a message and i will get back to you as soon as i can</p>
+      <script>
+      var StudentObj = function () {
+          var obj = new Object();
+          obj.user_name = "";
+          obj.user_email = "";
+          obj.user_message = "";
+          return obj;
+      };
+
+      var send = function(){
+        obj.user_name = document.getElementById('name').value;
+        obj.user_email = document.getElementById('email').value;
+        obj.user_message = document.getElementById('message').value;
+        return obj;
+      };
+      </script>
+
 
       <div class="findOut">
-        <form >
+        <form id="inquiryForm">
           <label for="name">Enter Name:</label>
-          <input type="name" id="name" name="name" />
+          <input type="name" id="inq-name" name="name" />
           <label for="email">Enter Email:</label>
-          <input type="email" id="email" name="email" />
+          <input type="email" id="inq-email" name="email" />
           <label for="message">Enter a message:</label>
-          <textarea id="message" name="message"></textarea>
-          <button type="submit" onclick="processFormData(email.value, image.value, message.value)">Send</button>
+          <textarea id="inq-message" name="message"></textarea>
+          <button type="submit" >Send</button>
         </form>
       </div>
 

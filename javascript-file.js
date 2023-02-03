@@ -22,7 +22,7 @@ function showSlides() {
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 3000);
+  setTimeout(showSlides, 5000);
 
   /*
   if (n > slides.length) {slideIndex = 1}
@@ -86,9 +86,9 @@ function notification(input) {
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
-    noty.style.display = "block";
-      const txt = document.getElementById("notification-text");
-      txt.textContent = " " + input;
+  noty.style.display = "block";
+  const txt = document.getElementById("notification-text");
+  txt.textContent = " " + input;
 
   span.onclick = function() {
     noty.style.display = "none";
@@ -132,28 +132,39 @@ const sliderMainImage = document.getElementById("product-main-image"); //product
 const sliderImageList = document.getElementsByClassName("image-list"); // image thumblian group selection
 console.log(sliderImageList);
 
-sliderImageList[0].onclick = function(){
+sliderImageList[0].onclick = function() {
     sliderMainImage.src = sliderImageList[0].src;
-    console.log(sliderMainImage.src);
+    //console.log(sliderMainImage.src);
 };
 
 sliderImageList[1].onclick = function(){
     sliderMainImage.src = sliderImageList[1].src;
-    console.log(sliderMainImage.src);
+    //console.log(sliderMainImage.src);
 };
 
 sliderImageList[2].onclick = function(){
     sliderMainImage.src = sliderImageList[2].src;
-    console.log(sliderMainImage.src);
+    //console.log(sliderMainImage.src);
 };
 
-sliderImageList[3].onclick = function(){
-    sliderMainImage.src = sliderImageList[3].src;
-    console.log(sliderMainImage.src);
-};
 }
 
 
+function downloadImage( ) {
+  const url = "../" + localStorage.getItem("product_image_url");
+  const name =  localStorage.getItem("product_name");
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = name;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+
+
+/*
 window.addEventListener("load", function(){
   setTimeout(
     function open(event){
@@ -165,16 +176,23 @@ window.addEventListener("load", function(){
 
 document.querySelector("#close").addEventListener("click", function(){
   document.querySelector(".popup").style.display = "none";
-});
+});*/
 
 
 ////////////////////////// product handler
 
-function changeProduct(productId) {
-  var productTitle = document.querySelector(".product-title");
-  var productImage = document.querySelector(".product-image-main");
 
-      productTitle.innerHTML = "Product 1";
-      productImage.src = "product1.jpg";
 
-}
+/*radio buttons for custom design
+document.getElementById("single-side").addEventListener("change", function() {
+    if(this.checked) {
+        document.getElementById("front-back").checked = false;
+    }
+});
+
+document.getElementById("front-back").addEventListener("change", function() {
+    if(this.checked) {
+        document.getElementById("single-side").checked = false;
+    }
+});
+*/

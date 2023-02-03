@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<script>
+</script>
+  <head>
+    <title>iffyweb-order</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="stylesheet" href="../static/styles2.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../javascript-file.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../javascript-datahandler.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+  </head>
+  <body class="style1">
+    <nav>
+      <ul>
+        <li><a class = "logo-nav" href="../index.html"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="products.html" class="active-nav">Products</a></li>
+        <li><a href="comissions.html">Services</a></li>
+        <li><a href="contact.html">About Me</a></li>
+        <li><a href="account.html">Account</a><li>
+      </ul>
+    </nav>
+      <main>
+
+
+        <div id="noty" class="notification-box">
+        <div class="notification-content">
+          <span class="close" >&times;</span>
+          <p id="notification-text" >Some text in the Modal..</p>
+        </div>
+        </div>
+
+        <div id="confirmation" class="confirmation-box">
+        <div class="confirmation-content">
+          <span class="close" onclick="closeConfirmationBox()">&times;</span>
+          <h1>Confirm Order</h1>
+          <h2>Order Details:</h2>
+          <p id="order-information">Hoodie Tshirt Poster Info</p>
+          <p id="order-contact-info">THIS IS A SIMULATED ORDER . FOR ORDER INFORMATION PLEASE EMAIL order@iffyweb.co.za. NOTE: </p>
+          <button type="button" onclick="closeConfirmationBox()">CANCEL</button>
+          <button type="button" name="confirmed" onclick="closeConfirmationBox(); notification('thank you. Please note that was a simulated order.'); setTimeout(function() { window.location = 'account.html';}, 6000);">PLACE ORDER</button>
+        </div>
+        </div>
+
+<script type="text/javascript">
+//localStorage.clear();
+//document.location.href = document.location.href;
+window.addEventListener('storage', function(event) {
+  if (event.key === 'product_image_url') {
+    // The data stored under the key 'myKey' has changed, update the page accordingly
+    updatePage();
+  }
+});
+
+var discountedPrice = 0;
+function updatePage() {
+
+  // Get the updated data from local storage
+  //let data = JSON.parse(localStorage.getItem('product_image_url'));
+  // Use the data to update the page elements
+  // ...
+//}
+
+//window.onload = function() {
+//document.location.href = document.location.href;
+//location.reload();
+
+  var arrString = localStorage.getItem("product_image_url");
+  var arrUrl = arrString.split(",");
+  //console.log("the array is: " + arrUrl.length);
+
+  const mainPicture = document.getElementById("product-main-image");
+  var url0 = "../" + arrUrl[0];
+  mainPicture.src = url0;
+
+  //images available for the other blocks
+  if(arrUrl.length >= 3){
+  const box1 = document.getElementById("product-image1");
+  var url1 = "../" + arrUrl[0];
+  box1.src = url1;
+
+  const box2 = document.getElementById("product-image2");
+  var url2 = "../" + arrUrl[1];
+  box2.src = url2;
+
+  const box3 = document.getElementById("product-image3");
+  var url3 = "../" + arrUrl[2];
+  box3.src = url3;
+  }
+  else{
+    const box1 = document.getElementById("product-image1");
+    var url1 = "../" + arrUrl[0];
+    box1.src = url1;
+
+    const box2 = document.getElementById("product-image2");
+    var url2 = "../" + arrUrl[1];
+    box2.src = url2;
+
+    const box3 = document.getElementById("product-image3");
+    box3.style.display = "none";
+  }
+
+  //console.log(window.products[0].product_image_url[0]);
+
+  var name = localStorage.getItem("product_name");
+  const productName = document.getElementById("product-name");
+  productName.innerHTML = name;
+
+  var desc = localStorage.getItem("product_desc");
+  const productDescription = document.getElementById("product-description");
+  productDescription.innerHTML = desc;
+
+  var price = parseFloat(localStorage.getItem("product_price"));
+  const salePrice = document.getElementById("offer-p");
+  salePrice.innerHTML = (price + 0.00)  + " ZAR";
+
+  discountedPrice = price - ( price * 0.15);
+  var offerPrice = document.getElementById("sale-p");
+  offerPrice.innerHTML = discountedPrice + " ZAR";
+
+//};
+}
+//document.location.href = document.location.href;
+function closeConfirmationBox(){
+  var confirmBox = document.getElementById("confirmation").style.display = "none";
+}
+
+function openConfirmationBox(){
+  if (sessionStorage.getItem("uid") === null) {
+    notification("PLEASE LOGIN OR SIGN IN FIRST. GO TO THE ACCOUNT PAGE");
+  }
+  else{
+    //console.log(sessionStorage.getItem("uid"));
+  var confirmBox = document.getElementById("confirmation").style.display = "block";
+  }
+}
+var order = "";
+
+function orderDetails(){
+  var contactInfo = document.getElementById("order-contact-info");
+  contactInfo.innerHTML = "Dear " + sessionStorage.getItem("user_name") + "\nNOTE: THIS IS A SIMULATED ORDER . FOR ORDER INFORMATION PLEASE EMAIL order@iffyweb.co.za.";
+  var orderInfo = document.getElementById("order-information");
+  const size = document.querySelector('input[name="size"]:checked').value;
+  order = localStorage.getItem("product_name") + " " + size + " " + discountedPrice + " ZAR";
+  orderInfo.innerHTML = order;
+}
+
+
+
+</script>
+
+        <div class="order-container">
+        <div class="single-product">
+            <div class="row">
+                <div class="col-6">
+                    <div class="product-image">
+                        <div class="product-image-main">
+                            <img src= "../static/no-image.jpg" alt="" id="product-main-image" >
+                        </div>
+                        <div class="product-image-slider">
+                            <img id= "product-image1" src= "../static/no-image.jpg" alt="1"  class="image-list"  onclick="changeImage();">
+                            <img id= "product-image2" src= "../static/no-image.jpg" alt="2"  class="image-list" onclick="changeImage();">
+                            <img id= "product-image3" src= "../static/no-image.jpg" alt="3"  class="image-list" onclick="changeImage();">
+                            <!--img src="static/O Degrees Kendrick.jpg" alt="4"  class="image-list" onclick="changeImage();"-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+
+                    <div class="product">
+                        <div class="product-title">
+                            <h2 id="product-name">Product Name</h2>
+                        </div>
+                        <div class="product-price">
+                            <span id="sale-p" class="offer-price">000.00 ZAR</span>
+                            <span id="offer-p" class="sale-price">000.00 ZAR</span>
+                        </div>
+
+                        <div class="product-details">
+                            <h3>Description</h3>
+                            <p id="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos est magnam quibusdam maiores sit perferendis minima cupiditate iusto earum repudiandae maxime vitae nostrum, ea cumque iste ipsa hic commodi tempore.</p>
+                        </div>
+                        <div class="product-size">
+                            <h4>Size</h4>
+                            <div class="size-layout">
+                                <input type="radio" name="size" value="S" id="1" class="size-input">
+                                <label for="1" class="size">S</label>
+
+                                <input type="radio" name="size" value="M" id="2" class="size-input">
+                                <label for="2" class="size">M</label>
+
+                                <input type="radio" name="size" value="L" id="3" class="size-input">
+                                <label for="3" class="size">L</label>
+
+                                <input type="radio" name="size" value="XL" id="4" class="size-input">
+                                <label for="4" class="size">XL</label>
+
+                                <input type="radio" name="size" value="XXL" id="5" class="size-input">
+                                <label for="5" class="size">XXL</label>
+                            </div>
+                        </div>
+                        <div class="product-color">
+                            <h4>Color</h4>
+                            <div class="color-layout">
+                                <input type="radio" name="color"  value="black" class="color-input">
+                                <label for="col1" class="c1"></label>
+                                <input type="radio" name="color"  value="white" class="color-input">
+                                <label for="col2" class="c2"></label>
+                                <input type="radio" name="color"  value="brown" class="color-input">
+                                <label for="col3" class="c3"></label>
+                            </div>
+                        </div>
+                        <span class="divider"></span>
+
+                        <div class="product-btn-group">
+                            <button onclick="orderDetails(); openConfirmationBox()" >Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>Popular Products</h1>
+    <div class ="product-display" id="smaller-products">
+        <div class="product-box">
+          <img src="../hoodiesandtees/reece-white.png" onclick= "window.open('order.html'); getProduct('A-Reece Hoodie');"/>
+          <h2>A-Reece Hoodie</h2>
+          <span class="offer-price">416.50 ZAR</span>
+          <span class="sale-price">490.00 ZAR</span>
+          <button onclick="window.open('order.html'); getProduct('A-Reece Hoodie');">Order</button>
+        </div>
+
+        <div class="product-box">
+          <img src="../hoodiesandtees/boondocksblack.png" onclick= onclick= "window.open('order.html'); getProduct('The Boondocks Tee');"/>
+          <h2>The Boondocks Tee</h2>
+          <span class="offer-price">197.37 ZAR</span>
+          <span class="sale-price">232.20 ZAR</span>
+          <button onclick= "window.open('order.html'); getProduct('The Boondocks Tee');">Order</button>
+        </div>
+
+        <div class="product-box">
+          <img src="../poster/pele-poster.jpg" onclick= "window.open('order-posters.html'); getProduct('Pele Poster');"/>
+          <h2>'Pele Poster</h2>
+          <span class="offer-price">390.00 ZAR</span>
+          <span class="sale-price">459.00 ZAR</span>
+          <button onclick= "window.open('order-posters.html'); getProduct('Pele Poster');">Buy</button>
+        </div>
+
+        <div class="product-box">
+          <img src="../hoodiesandtees/kobe-black.png" onclick= "window.open('order.html'); getProduct('Kobe Bryant Tee');"/>
+          <h2>'Kobe Bryant' Tee</h2>
+          <span class="offer-price">197.37 ZAR</span>
+          <span class="sale-price">232.20 ZAR</span>
+          <button onclick= "window.open('order.html'); getProduct('Kobe Bryant Tee');">Order</button>
+        </div>
+
+
+      </div>
+
+  </main>
+  </body>
+</html>

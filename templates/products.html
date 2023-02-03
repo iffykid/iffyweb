@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iffyweb-products</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../javascript-datahandler.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a class = "logo-nav" href="../index.html"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="products.html" class="active-nav">Products</a></li>
+        <li><a href="comissions.html">Services</a></li>
+        <li><a href="contact.html">About Me</a></li>
+        <li><a href="account.html">Account</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="top-start">
+        <h1>PRODUCTS</h1>
+        <p>shop new, available products from a large range</p>
+      </div>
+      <hr class="page-breaker">
+
+<h1 id="hoodies">Hoodies</h1>
+<div class="product-container">
+  <div class ="product-display1">
+    <ul>
+      <li><div class="card">
+        <div class="price">
+          <h3>368.70 ZAR</h3>
+        </div>
+        <div class="imgBx">
+          <img src="../hoodiesandtees/anarchy-brown.png">
+        </div>
+        <div class="contentBx">
+          <button onclick="window.open('order.html'); getProduct('Anarchy Hoodie'); " >ORDER NOW</button>
+          <div class="size">
+            <h3>Sizes :</h3>
+            <span>S</span>
+            <span>M</span>
+            <span>L</span>
+            <span>XL</span>
+          </div>
+          <div class="color">
+            <h3>SELECT COLOUR</h3>
+      </div>
+    </div>
+      </li>
+      <li><div class="card">
+        <div class="price">
+          <h3>368.70 ZAR</h3>
+        </div>
+        <div class="imgBx">
+          <img src="../hoodiesandtees/aaliyah-white.png">
+        </div>
+        <div class="contentBx">
+          <button onclick="window.open('order.html'); getProduct('Aaliyah Hoodie'); " >ORDER NOW</button>
+          <div class="size">
+            <h3>Sizes :</h3>
+            <span>S</span>
+            <span>M</span>
+            <span>L</span>
+            <span>XL</span>
+          </div>
+          <div class="color">
+            <h3>SELECT COLOUR</h3>
+      </div>
+      </div>
+    </div>
+      </li>
+      <li><div class="card">
+        <div class="price">
+          <h3>368.70 ZAR</h3>
+        </div>
+        <div class="imgBx">
+          <img src="../hoodiesandtees/ironmike-black.png">
+        </div>
+        <div class="contentBx">
+          <button onclick="window.open('order.html'); getProduct('Iron Mike Hoodie'); " >ORDER NOW</button>
+          <div class="size">
+            <h3>Sizes :</h3>
+            <span>S</span>
+            <span>M</span>
+            <span>L</span>
+            <span>XL</span>
+          </div>
+          <div class="color">
+            <h3>SELECT COLOUR</h3>
+      </div>
+      </div>
+    </div>
+      </li>
+      <li><div class="card">
+        <div class="price">
+          <h3>368.70 ZAR</h3>
+        </div>
+        <div class="imgBx">
+          <img src="../hoodiesandtees/beyonce-brown.png">
+        </div>
+        <div class="contentBx">
+          <button onclick="window.open('order.html'); getProduct('Beyonce Hoodie'); " >ORDER NOW</button>
+          <div class="size">
+            <h3>Sizes :</h3>
+            <span>S</span>
+            <span>M</span>
+            <span>L</span>
+            <span>XL</span>
+          </div>
+          <div class="color">
+            <h3>SELECT COLOUR</h3>
+      </div>
+      </div>
+    </div>
+      </li>
+    </ul>
+</div>
+  </div>
+  <hr class="page-breaker">
+
+<!--#######################TSHIRTS######################################### -->
+<h1>Tees</h1>
+  <div class="product-container" id="tees">
+    <div class ="product-display1">
+      <ul>
+        <li><div class="card">
+          <div class="price">
+            <h3>368.70 ZAR</h3>
+          </div>
+          <div class="imgBx">
+            <img src="../hoodiesandtees/kobe-black.png">
+          </div>
+          <div class="contentBx">
+            <button onclick="window.open('order.html'); getProduct('Kobe Bryant Tee');" >ORDER NOW</button>
+            <div class="size">
+              <h3>Sizes :</h3>
+              <span>L</span>
+              <span>XL</span>
+              <span>XL</span>
+            </div>
+            <div class="color">
+              <h3>BLACK | WHITE</h3>
+        </div>
+        </div>
+      </div>
+        </li>
+        <li><div class="card">
+          <div class="price">
+            <h3>368.70 ZAR</h3>
+          </div>
+          <div class="imgBx">
+            <img src="../hoodiesandtees/samuraijackwhite.png">
+          </div>
+          <div class="contentBx">
+            <button onclick="window.open('order.html'); getProduct('Samurai Jack Tee');" >ORDER NOW</button>
+            <div class="size">
+              <h3>Sizes :</h3>
+              <span>M</span>
+              <span>L</span>
+              <span>XL</span>
+            </div>
+            <div class="color">
+              <h3>BLACK | WHITE</h3>
+        </div>
+        </div>
+      </div>
+        </li>
+        <li><div class="card">
+          <div class="price">
+            <h3>368.70 ZAR</h3>
+          </div>
+          <div class="imgBx">
+            <img src="../hoodiesandtees/theweekendblack.png">
+          </div>
+          <div class="contentBx">
+            <button onclick="window.open('order.html'); getProduct('The Weekend Tee');" >ORDER NOW</button>
+            <div class="size">
+              <h3>Sizes :</h3>
+              <span>M</span>
+              <span>L</span>
+              <span>XL</span>
+            </div>
+            <div class="color">
+              <h3>BLACK | WHITE</h3>
+        </div>
+        </div>
+      </div>
+        </li>
+        <li><div class="card">
+          <div class="price">
+            <h3>368.70 ZAR</h3>
+          </div>
+          <div class="imgBx">
+            <img src="../hoodiesandtees/beyoncewhite.png">
+          </div>
+          <div class="contentBx">
+            <button onclick="window.open('order.html'); getProduct('Beyonce Tee');" >ORDER NOW</button>
+            <div class="size">
+              <h3>Sizes :</h3>
+              <span>M</span>
+              <span>L</span>
+              <span>XL</span>
+            </div>
+            <div class="color">
+              <h3>BLACK | WHITE</h3>
+        </div>
+        </div>
+      </div>
+        </li>
+        <li><div class="card">
+          <div class="price">
+            <h3>368.70 ZAR</h3>
+          </div>
+          <div class="imgBx">
+            <img src="../hoodiesandtees/unknown-black.png">
+          </div>
+          <div class="contentBx">
+            <button onclick="window.open('order.html'); getProduct('Unknown Tee');" >ORDER NOW</button>
+            <div class="size">
+              <h3>Sizes :</h3>
+              <span>M</span>
+              <span>L</span>
+              <span>XL</span>
+            </div>
+            <div class="color">
+              <h3>BLACK | WHITE</h3>
+        </div>
+        </div>
+      </div>
+        </li>
+        <li><div class="card">
+          <div class="price">
+            <h3>368.70 ZAR</h3>
+          </div>
+          <div class="imgBx">
+            <img src="../hoodiesandtees/boondockswhite.png">
+          </div>
+          <div class="contentBx">
+            <button onclick="window.open('order.html'); getProduct('The Boondocks Tee');" >ORDER NOW</button>
+            <div class="size">
+              <h3>Sizes :</h3>
+              <span>M</span>
+              <span>L</span>
+              <span>XL</span>
+            </div>
+            <div class="color">
+              <h3>BLACK | WHITE</h3>
+        </div>
+        </div>
+      </div>
+        </li>
+      </ul>
+  </div>
+    </div>
+  <hr class ="page-breaker">
+  <h1>Posters</h1>
+
+
+  <div class="poster-packs" id="posters">
+  <div class="poster-pack">
+    <a onclick="getProduct('Pele Poster'); window.open('order-posters.html');">
+    <img src="../poster/pele-poster.jpg" alt="">
+    </a>
+  </div>
+  <div class="poster-pack">
+    <a onclick="getProduct('Mariachis Poster'); window.open('order-posters.html');">
+    <img src="../poster/mariachis-poster.jpg" alt="">
+    </a>
+  </div>
+  <div class="poster-pack">
+    <a onclick="getProduct('Medusa Poster'); window.open('order-posters.html');">
+    <img src="../poster/medusa-poster.jpg" alt="">
+    </a>
+  </div>
+  <div class="poster-pack">
+    <a onclick="getProduct('Lauryn Hill Poster'); window.open('order-posters.html');">
+    <img src="../poster/laurenhill-poster.jpg" alt="">
+    </a>
+  </div>
+  <div class="poster-pack">
+    <a onclick="getProduct('Freddie Mercury Poster'); window.open('order-posters.html');">
+    <img src="../poster/freddie-poster.jpg" alt="">
+    </a>
+  </div>
+  <div class="poster-pack">
+    <a onclick="getProduct('Dont Stare Poster'); window.open('order-posters.html');">
+    <img src="../poster/dontstare-poster.jpg" alt="">
+    </a>
+  </div>
+  <div class="poster-pack">
+    <a onclick="getProduct('Coke Poster'); window.open('order-posters.html');">
+    <img src="../poster/coke-poster.jpg" alt="">
+    </a>
+  </div>
+  <div class="poster-pack">
+    <a onclick="getProduct('Skull Corn Poster'); window.open('order-posters.html');">
+    <img src="../poster/skullcorn-poster.jpg" alt="">
+    </a>
+  </div>
+</div>
+
+  <!--hr class="page-breaker">
+  <h1 >Customs</h1>
+  <p>need a custom hoodie or tshirt design?</p>
+
+  <div class ="product-display" id="customs">
+      <div class="product-box">
+        <img src="../static/hoodie-mock.png"/>
+        <h2>Custom Printed Hoodie</h2>
+        <p>TBC</p>
+        <button onclick="window.open('order-custom.html')" >Start Order</button>
+      </div>
+
+      <div class="product-box">
+        <img src="../static/tee-mock.png"/>
+        <h2>Custom Printed Tee</h2>
+        <p>TBC</p>
+        <button onclick="window.open('order-custom.html')">Start Order</button>
+      </div>
+  </div-->
+
+
+
+    </main>
+    <footer>
+          <div class="footer-content">
+              <p>feel free to contact or interact with us on any of my socials</p>
+              <ul class="socials">
+                <li><a href="mailto:iffy.graphics@gmail.com?subject=Inquiry"><i class="fa fa-envelope"></i></a></li>
+                <li><a href="https://wa.me/message/PGLHGNZ7WUXPA1"><i class="fa fa-whatsapp"></i></a></li>
+                <li><a href="https://www.instagram.com/iffy.graphics"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://twitter.com/iffygraphics?s=21"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/shaun-musodza-31b231181/"><i class="fa fa-linkedin-square"></i></a></li>
+              </ul>
+              <p>&copy; by iffy</p>
+          </div>
+      </footer>
+  </body>
+</html>

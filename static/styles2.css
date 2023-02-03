@@ -65,6 +65,34 @@
     object-fit: contain;
 }
 
+.design-mock-up{
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.customs-image {
+    position: relative;
+}
+
+
+#h-mock{
+  height: 480px;
+}
+
+#design{
+  width: 140px;;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%, -50%);
+}
+
+
 .product-image-slider{
     display: flex;
     gap: 10px;
@@ -88,12 +116,11 @@
 
 }
 .product-title h2{
-    font-size: 32px;
-    line-height: 2.4rem;
+    font-size: 45px;
     font-weight: 800;
     letter-spacing: -0.02rem;
-    color: #c6d612ff;
-    padding: 20px 0px;
+    color: #0643b2;
+    padding: 10px 0px;
 }
 
 /** Product price **/
@@ -107,13 +134,13 @@
 .product-price .offer-price{
     font-size: 48px;
     font-weight: 700;
-    color: #0643b2;
+    color: white;
 }
 .product-price .sale-price{
     font-size: 22px;
     font-weight: 500;
     text-decoration: line-through;
-    color: white;
+    color: grey;
     margin-left: 12px;
 }
 
@@ -228,7 +255,7 @@
 
 .product-color .color-layout input[type="radio"]:checked + .color-input{
     background-color: #030103ff;
-    color: white;
+    //color: white;
     box-shadow: 0 3px 6px var(--shadow);
     border: 2px solid white;
 }
@@ -305,9 +332,28 @@
     color: var(--accent-color);
 }
 
+@media screen and (min-width:640px){
+  .customs-image {
+      position: relative;
+  }
+
+  .parent-container{
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+      grid-gap: 1rem;
+  }
+
+  .customs-image:nth-child(1) {
+      grid-column: 1 / 2;
+  }
+
+  .customs-image:nth-child(2) {
+      grid-column: 2 / 3;
+  }
+}
 
 /** Responsive Mobile **/
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 640px) {
     .container{
         padding: 20px;
         height: auto;
@@ -344,8 +390,7 @@
     }
 
     .product-title h2{
-        font-size: 24px;
-        line-height: 1.6rem;
+        font-size: 40px;
     }
     .product-size{
         display: block;
@@ -362,6 +407,23 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+
+
+    #h-mock{
+      height: 480px;
+    }
+
+    #design{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform:translate(-50%, -50%);
+    }
+
+    #design img{
+      width: 140px;
+      height: auto;
     }
 }
 
@@ -401,4 +463,11 @@
   font-size: 16px;
   color: #bf0fb1ff;
   text-align: center;
+}
+
+.custom-upload{
+  color: white;
+  text-align: center;
+  position: static;
+  padding: 5px;
 }

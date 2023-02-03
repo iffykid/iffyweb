@@ -31,6 +31,21 @@ p{
   font-size: 18px;
 }
 
+.about-me-info {
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+    monospace;
+}
+
+.about-me-info p{
+  font-size: 16px;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+    monospace;
+}
+
 /*@media screen and (max-width: 800px) {
   body {
     font-size: 22px;
@@ -61,6 +76,7 @@ nav ul {
   background-color: black;
 }
 
+
 nav li {
   flex: auto;
   text-align: center;
@@ -71,7 +87,6 @@ nav li {
 
 }
 
-
 nav a {
   display: block;
   padding: 25px 3px;
@@ -80,6 +95,7 @@ nav a {
   color: white;
   vertical-align: middle;
   transition: color 0.5 ease;
+  font-size: 22px;
 }
 
 .logo-nav{
@@ -97,7 +113,37 @@ nav a:hover {
 
 nav a:hover {
   color: #ffe000;
+  transform: scale(1.1);
 }
+
+/*mobile app////////////////////////////////////////////////*/
+@media only screen and (max-width: 600px){
+
+  nav a {
+    display: block;
+    padding: 30px 3px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    vertical-align: middle;
+    transition: color 0.5 ease;
+    font-size: 22px;
+  }
+
+  .top-start{
+    padding-top: 20px;
+  }
+
+  .top-start h1{
+    font-size: 80px;
+  }
+
+  .top-start p{
+    font-size: 18px;
+  }
+
+}
+
 
 main {
   padding: 30px;
@@ -109,16 +155,16 @@ main {
 
 .top-start h1{
   font-family: sans-serif;
-  font-weight: bold;
-  font-size: 40px;
+  font-weight: 900;
+  word-spacing: 0.2px;
+  font-size: 42px;
   color: #0643b2;
-  margin-bottom: 0%;
+  margin-bottom: 1px;;
 }
 
 .top-start p{
   font-family: times;
 }
-
 
 button {
    background-color: black;
@@ -132,11 +178,14 @@ button {
    border-radius: 18px;
    font-size: 100%;
    font-weight: bold;
+   transition: transform 0.6s;
  }
 
 button:hover{
   background-color: white;
   color: black;
+  transition: color 1.0s ease;
+  transform: scale(1.02);
 }
 
 .in-menu{
@@ -167,7 +216,7 @@ button:hover{
 .notification-box{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 999; /* Sit on top */
+  z-index: 1000; /* Sit on top */
   /*padding-top: 350px; Location of the box */
   left: 0;
   top: 0;
@@ -214,7 +263,54 @@ button:hover{
   cursor: pointer;
 }
 
+.confirmation-box{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  /*padding-top: 350px; Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.6); /* Black w/ opacity */
+}
 
+.confirmation-content{
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  border: none;
+  border-radius: 20px;
+  width: 73%;
+  height: auto;
+}
+
+.confirmation-content h1{
+  color: black;
+  font-size: 22px;
+}
+
+.confirmation-content h2{
+  color: #0643b2;
+  font-size: bold;
+}
+
+.confirmation-content p{
+  color: black;
+}
+
+#order-contact-info{
+  color: red;
+  font-size: 15px;
+  font-style: italic;
+}
 
 
 .card-slider {
@@ -374,13 +470,13 @@ button:hover{
 
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 640px) {
+
   .product-display1 ul {
     grid-template-columns: 1fr ;
     margin: 0 auto;
   }
 }
-
 
 .product-display1 li{
 }
@@ -411,50 +507,40 @@ button:hover{
 }
 
  #smaller-products .product-box{
-  width: 25%;
+  width: 33.33333%;
   padding: 5px 10px;
   align-items: center;
   text-align: center;
 }
 
 
-@media (max-width: 800px) {
-  .product-display .product-box{
-    width: 50%;
-  }
-
-  #smaller-products .product-box{
-   width: 50%;
-   padding: 5px 10px;
-   align-items: center;
-   text-align: center;
- }
-}
-
 .product-display .product-box img{
   align-items: center;
   width: 100%;
   transition: transform 0.4s;
+  pointer-events: none;
+
 }
 
-.product-display .product-box img:hover{
+#smaller-products  img:hover{
   transform: scale(1.15);
 }
 
 
 .product-box .offer-price{
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 700;
     color: #0643b2;
     padding-bottom: 30px;
+    display: grid;
 }
 
 .product-box .sale-price{
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     text-decoration: line-through;
     color: red;
-    margin-left: 12px;
+    margin-top: 2px;
     font-style: italic;
 }
 
@@ -478,7 +564,18 @@ button:hover{
   padding: 0px 5px;
 }
 
+@media (max-width: 600px) {
+  .product-display .product-box{
+    width: 50%;
+  }
 
+  #smaller-products .product-box{
+   width: 50%;
+   padding: 5px 10px;
+   align-items: center;
+   text-align: center;
+ }
+}
 
 #logo {
   width: auto;
@@ -724,7 +821,7 @@ hr{
 
 /* Modal Content */
 .modal-content {
-  background-color: #2a17bcff;
+  background-color: white;
   margin: auto;
   padding: 20px;
   border: none;
@@ -741,12 +838,13 @@ hr{
 .modal-content p{
   text-align: center;
   font-size: bold;
-  color: white;
+  color: black;
+  font-size: 30px;
 }
 
 /* The Close Button */
 .close {
-  color: white;
+  color: rgba(0, 109, 170, 1);;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -870,14 +968,14 @@ hr{
 .product-container .card:hover .contentBx .color{
   opacity: 1;
   visibility: visible;
-  transition-delay: 0.5s;
+  transition-delay: 0.0;
   margin: -10px;
 }
 
 .product-container .card .contentBx .size h3, .container .card .contentBx .color h3{
   color: white;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-right: 10px;
@@ -889,7 +987,7 @@ hr{
   border: none ;
   cursor: pointer;
   width: 50%;
-  border-radius: 16px;
+  border-radius: 20px;
   font-size: 100%;
   font-weight: bold;
   margin: auto;
@@ -927,18 +1025,6 @@ hr{
   margin: -100px;
 }
 
-.product-container .card .contentBx .color span:nth-child(0){
-  background: white;
-}
-
-.product-container .card .contentBx .color span:nth-child(1){
-  background: black;
-}
-
-.product-container .card .contentBx .color span:nth-child(2){
-  color: : brown;
-}
-
 
 .product-container .card .price h3{
   color: #0643b2;
@@ -969,7 +1055,7 @@ hr{
   transform: scale(1.15); /* Scale the image up by 10% on hover */
 }
 
-@media (max-width: 800px) {
+@media (max-width: 640px) {
   .poster-pack {
     width: 50%; /* 1 column */
   }
@@ -1156,6 +1242,270 @@ form button[type="submit"] {
     width: 100px;
     padding: -2px;
 }
+
+/*acount page///////////////////////////account page///////////////////*/
+.profile-sidebar{
+  width: 100%;
+}
+
+.main-profile{
+  width: 380px;
+
+}
+
+.profile-userpic{
+  text-align: center;
+  justify-content: center;
+}
+
+.profile-userbuttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.profile-userbuttons button {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  width: 130px;
+  height: 40px;
+  border-radius: 30px;
+
+}
+
+#login{
+  background-color: #0353A4;
+}
+
+#logout{
+  background-color: red;
+}
+
+#signup{
+  background-color: green;
+}
+
+#login:hover{
+
+}
+
+#logout{
+  background-color: red;
+}
+
+.profile-content{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: white;
+  text-align: center;
+  /*margin: 0 auto; /* center the table in the container */
+  margin: 40px 0px;
+  display: inline-flex;
+}
+
+tr{
+  background-color: white;
+}
+
+
+td{
+  padding: 15px 5px;
+}
+
+a{
+  text-decoration: none;
+  color: $clr-link;
+}
+
+.amount {
+  text-align: right;
+}
+
+tr:nth-child(even) {
+  background-color: grey;
+}
+
+.form-popup {
+  /*display: none;*/
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  padding-top: 350px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+
+}
+
+.form-popup img{
+  width: 60px;
+  justify-content: center;
+  text-align: center;
+  display: block;
+}
+
+.form-popup p{
+  color: black;
+  font-style: italic;
+  font-weight:lighter;
+}
+
+/* Add styles to the form container */
+.form-container {
+  width: 70%;
+  padding: 10px;
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  border: none;
+  border-radius: 20px;
+  height: auto;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  background: #f1f1f1;
+  border-radius: 17px;
+  border-color: : rgba(185, 214, 242, 1);
+  outline-width: 3px;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: rgba(3, 83, 164, 1);
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.form-container a{
+  text-decoration: none;
+  font-style: italic;
+  font-size: 14px;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/*//////////////////////////////// business card*/
+.business-card {
+    justify-content: center;
+    text-align: center;
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+      "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+      "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+      monospace;
+      padding-top: 20px;
+      margin-bottom: 50px;
+  }
+
+
+  .profile-details h1{
+    color: #0643b2;
+    font-weight: bolder;
+  }
+
+  .profile-details h2{
+    font-style: oblique;
+    font-size: 17px;
+  }
+
+  .profile-details p{
+    font-style: italic;
+    font-size: 18px;
+
+  }
+
+  .profile-pils {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .pils {
+    margin: 5px;
+    padding: 15px;
+    border: 4px solid #0643b2;
+    border-radius: 40px;
+    background: rgba(185, 214, 242, 0.2);
+
+  }
+
+  .business-card .profile-pils a {
+    color: white; /* or any other color */
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+
+
+/*///////////////////////CAPE TOWN FISHING CLUB PAGE//////////////////####################*/
+
+
+
+/*{
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+    monospace;
+}*/
+
+$beau-blue: rgba(185, 214, 242, 1);
+$oxford-blue: rgba(6, 26, 64, 1);
+$usafa-blue: rgba(3, 83, 164, 1);
+$honolulu-blue: rgba(0, 109, 170, 1);
+$prussian-blue: rgba(0, 53, 89, 1);
+
+
+/* SCSS RGB */
+$alice-blue: rgba(231, 236, 239, 1);
+$yale-blue: rgba(39, 76, 119, 1);
+$cerulean-frost: rgba(96, 150, 186, 1);
+$baby-blue-eyes: rgba(163, 206, 241, 1);
+$battleship-grey: rgba(139, 140, 137, 1);
 
 --black: #030103ff;
 --medium-blue: #2a17bcff;
