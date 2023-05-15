@@ -3,7 +3,8 @@
     position: relative;
     align-items: center;
     justify-content: center;
-    padding: 100px 0px;
+    padding: 50px 0px;
+    font-family: "Kanit", sans-serif;
 }
 
 .row{
@@ -12,8 +13,8 @@
 }
 
 .col-6{
-    width: 70%;
-    padding-right: 80px;
+    width: 80%;
+    padding-right: 60px;
 }
 
 .single-product{
@@ -120,7 +121,8 @@
     font-weight: 800;
     letter-spacing: -0.02rem;
     color: #0643b2;
-    padding: 10px 0px;
+    padding: 0px 0px;
+    padding-bottom: 0px;
 }
 
 /** Product price **/
@@ -129,6 +131,8 @@
     position: relative;
     margin: 10px 0;
     align-items: center;
+    padding-top: 0px;
+    margin-top: 0px;
 }
 
 .product-price .offer-price{
@@ -148,15 +152,19 @@
 .product-details{
     margin: 10px 0;
 }
+
 .product-details h3{
     font-size: 25px;
-    font-weight: 700;
+    font-weight: 600;
     color: white;
+    padding-top: 10px;
 }
 .product-details p{
     margin: 5px 0;
     font-size: 18px;
     line-height: 1.2rem;
+    font-weight: 300;
+    font-style: italic;
 }
 
 /** Product size **/
@@ -180,6 +188,7 @@
 .product-size .size-layout .size-input{
     display: none;
 }
+
 .product-size .size-layout .size{
   width: 50px;
   height: auto;
@@ -255,12 +264,13 @@
 
 .product-color .color-layout input[type="radio"]:checked + .color-input{
     background-color: #030103ff;
-    //color: white;
+    color: white;
     box-shadow: 0 3px 6px var(--shadow);
     border: 2px solid white;
 }
 
 
+  
 
 /** divider **/
 .divider{
@@ -288,7 +298,8 @@
 }
 
 .product-btn-group button{
-  width: auto;
+  width: 200px;
+  border-radius: 30px;
 }
 
 .product-btn-group .buy-now{
@@ -333,6 +344,7 @@
 }
 
 @media screen and (min-width:640px){
+
   .customs-image {
       position: relative;
   }
@@ -352,10 +364,21 @@
   }
 }
 
-/** Responsive Mobile **/
+/*                                            ** Responsive Mobile **/
 @media screen and (max-width: 640px) {
+
+    .order-container{
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 0px;
+        margin-top: 0px;
+    }
+
     .container{
-        padding: 20px;
+        padding: 0px;
+
         height: auto;
     }
     .row{
@@ -368,7 +391,7 @@
         margin: auto;
         display: flex;
         justify-content: center;
-        padding: 0;
+        padding: 0px;
     }
     .single-product{
         width: 100%;
@@ -377,12 +400,15 @@
 
     .product-image .product-image-main{
         width: 100%;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
     }
     .product-image-slider{
-        gap: 15px;
-        margin: auto;
+        gap: 4px;
+        margin: 0px;
         display: flex;
         justify-content: center;
+        padding-bottom: 0px;
     }
 
     .breadcrumb{
@@ -390,18 +416,29 @@
     }
 
     .product-title h2{
-        font-size: 40px;
+        font-size: 38px;
+        padding-bottom: 3px;
+        margin-bottom: 3px;
     }
+
+    .product-price .offer-price{
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .product-price .sale-price{
+      font-size: 22px;
+      font-weight: bold;
+    }
+
     .product-size{
         display: block;
     }
+
     .product-size .size-layout{
         display: block;
-        margin: 10px 0;
-
-    }
-    .product-size .size-layout .size{
-        padding: 6px 10px;
+        padding: 0px;
+        margin: 0px;
     }
     .product-btn-group{
         display: flex;
@@ -409,6 +446,14 @@
         gap: 10px;
     }
 
+    .product-details h3{
+      font-size: 24px;
+    }
+
+    .product-details p{
+      font-size: 16px;
+      font-style: italic;
+    }
 
     #h-mock{
       height: 480px;
@@ -470,4 +515,166 @@
   text-align: center;
   position: static;
   padding: 5px;
+}
+
+
+/*                   CART ITEMS */
+
+.CartContainer{
+	width: 70%;
+	height: 90%;
+	background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px #1687d933;
+}
+
+.Header{
+	margin: auto;
+	width: 90%;
+	height: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Heading{
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 700;
+	color: #2F3841;
+}
+
+.Action{
+	font-size: 14px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #E44C4C;
+	cursor: pointer;
+	border-bottom: 1px solid #E44C4C;
+}
+
+.Cart-Items{
+	margin: auto;
+	width: 90%;
+	height: 30%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.image-box2{
+	width: 15%;
+	text-align: center;
+}
+.about{
+	height: 100%;
+	width: 24%;
+}
+.title{
+	padding-top: 10px;
+	line-height: 10px;
+	font-size: 32px;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #202020;
+}
+.subtitle{
+	line-height: 10px;
+	font-size: 18px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #909090;
+}
+
+.counter{
+	width: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.btn{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 900;
+	color: #202020;
+	cursor: pointer;
+}
+.count{
+	font-size: 20px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #202020;
+}
+
+.prices{
+	height: 100%;
+	text-align: right;
+}
+.amount{
+	padding-top: 20px;
+	font-size: 26px;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #202020;
+}
+.save{
+	padding-top: 5px;
+	font-size: 14px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #1687d9;
+	cursor: pointer;
+}
+.remove{
+	padding-top: 5px;
+	font-size: 14px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #E44C4C;
+	cursor: pointer;
+}
+
+.pad{
+	margin-top: 5px;
+}
+
+.cart-hr hr{
+	width: 66%;
+	float: right;
+	margin-right: 5%;
+}
+.checkout{
+	float: right;
+	margin-right: 5%;
+	width: 28%;
+}
+.total{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.Subtotal{
+	font-size: 22px;
+	font-family: 'Open Sans';
+	font-weight: 700;
+	color: #202020;
+}
+.items{
+	font-size: 16px;
+	font-family: 'Open Sans';
+	font-weight: 500;
+	color: #909090;
+	line-height: 10px;
+}
+.total-amount{
+	font-size: 36px;
+	font-family: 'Open Sans';
+	font-weight: 900;
+	color: #202020;
 }

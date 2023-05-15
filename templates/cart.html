@@ -1,34 +1,219 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>iffyweb-cart</title>
-    <link rel="stylesheet" href="static/styles.css" />
+    <title>Cart - iffyweb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="../static/styles3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../static/iffy web logo.png">
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M55D2J4SL">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4M55D2J4SL');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../javascript-datahandler.js"></script>
+    <script src="../javascript-file.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script>
+    
+    //console.log(storedCart[0][0]);
+    //document.location.href = document.location.href;
+    window.onload = function() {
+      updatePage();
+    };
+
+    let prevScrollpos = window.pageYOffset;
+
+    window.addEventListener('storage', function(event) {
+      if (event.storageArea === sessionStorage) {
+        if (event.key === 'cartTable') {
+      // The data stored under the key 'myKey' in session storage has changed, update the page accordingly
+        updatePage();
+        }
+      }
+    });
+
+    window.onscroll = function() {
+          let currentScrollPos = window.pageYOffset;
+          if (prevScrollpos > currentScrollPos) {
+            // Show navigation bar
+            document.getElementById("navbar").style.top = "0";
+            // Check if user has scrolled to the top of the page
+            if (currentScrollPos === 0) {
+              // Add "visible" class to navigation bar
+              document.getElementById("navbar").classList.add("visible");
+            } else {
+              // Remove "visible" class from navigation bar
+              document.getElementById("navbar").classList.remove("visible");
+            }
+          } else {
+            // Hide navigation bar
+            document.getElementById("navbar").style.top = "-70px";
+          }
+          prevScrollpos = currentScrollPos;
+        };
+
+    var priceTotal = 0.00;
+    function updatePage() {
+      getUserCart();
+      //getUserOrders();
+      //console.log(sessionStorage.getItem("user_name"));
+    if(sessionStorage.getItem("uid") == undefined){
+      notification("PLEASE SIGN IN OR SIGN UP");
+    }
+    else{
+      var storedArray = JSON.parse(sessionStorage.getItem('cartTable'));
+      var table = document.getElementById("cart-table");
+      console.log(storedArray);
+      for (let i = 0; i < storedArray.length; i++) {
+        
+
+        for (const dictionary of storedArray[i]) {
+          const row = table.insertRow();
+          const img = document.createElement("img");
+          var item_url = "../" + dictionary["item_url"];
+          img.src =item_url;
+          img.alt = "Product Image";
+          img.classList.add('preview-img');
+
+          //const cell1 = document.createElement("td");
+          var cell1 = row.insertCell();
+          cell1.appendChild(img);
+          //const cell2 = document.createElement("td");
+          var cell2 = row.insertCell();
+          cell2.innerHTML = dictionary["item_name"];
+          //const cell3 = document.createElement("td");
+          var cell3 = row.insertCell();
+          cell3.innerHTML = dictionary["item_size"];
+          //const cell4 = document.createElement("td");
+          var cell4 = row.insertCell();
+          cell4.innerHTML = dictionary["item_price"];
+          priceTotal += dictionary["item_price"];
+          const link = document.createElement('a');
+          link.addEventListener('click', function() {
+            alert('hello');
+          });
+          link.classList.add('remove');
+          link.innerHTML = "&#10005;";
+          //const cell5 = document.createElement("td"); 
+          var cell5 = row.insertCell();
+          cell5.appendChild(link);
+
+          //row.appendChild(cell1);
+          //row.appendChild(cell2);
+          //row.appendChild(cell3);
+          //row.appendChild(cell4);
+          //row.appendChild(cell5);
+          
+        }
+        //table.appendChild(row);
+        //table.appendChild(document.createElement("br"));
+        }
+      }
+
+      const subTotal = document.getElementById("cart-subtotal-price");
+      subTotal.innerHTML = "SUBTOTAL: " + priceTotal + " ZAR";
+
+      const productTotal = document.getElementById("cart-total-price");
+      productTotal.innerHTML = "TOTAL: " + priceTotal + " ZAR";
+
+
+      //const rows = table.rows; // get all the rows in the table
+
+      /*for (let i = 1; i < rows.length; i++) {
+        const cell = rows[i].insertCell(-1); // insert a new cell at the end of each row
+        const link = document.createElement('a'); // create a new link element
+        link.href = '#'; // set the link href attribute
+        link.classList.add('remove'); // add the "remove" class to the link
+        link.textContent = 'remove item'; // set the link text content
+        cell.appendChild(link); // append the link to the new cell
+      }*/
+
+    }
+
+      //var tableSplit = sessionStorage.getItem("orderTable");
+      //var tableNorm = tableSplit.split("$");
+
+      //console.log("the data:"+ tableNorm[0]);
+    
+    </script>
+
+
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a class = "logo-nav" href="index.html"><img src= "static/iffy web logo.png" id ="logo"></a></li>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="comissions.html">Services</a></li>
-          <li><a href="contact.html">About Me</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div class="mobile-menu">
+      <i class="fa fa-bars" id="menuButton" onclick="navDrop()"></i>
+      <a href="../templates/cart.html"><i class="fa fa-shopping-cart" id="shoppingButton"></i></a>
+      <a href="../templates/account.html"><i class="fa fa-user" id="userButton"></i></a>
+    </div>
+    <nav id="navbar">
+      <span class="close-nav" onclick="navClose()">&times;</span>
+      <ul>
+          <li><a class="logo-nav" onclick="navDrop()"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../templates/products.html">Products</a></li>
+          <li><a href="../templates/prices.html" >Prices</a></li>
+          <li><a href="../templates/comissions.html" >Services</a></li>
+          <li><a href="../templates/contact.html">About Me</a></li>
+          <li><a href="../templates/account.html">Account</a></li>
+          <li><a href="../templates/cart.html" class="active-nav">Cart</a></li>
+      </ul>
+    </nav>
     <main>
-      <h1>Shopping Cart</h1>
-      <table>
-        <tr>
-          <th>Item</th>
-          <th>Description</th>
-          <th>Quantity</th>
-          <th>Price</th>
-        </tr>
-        <tr>
-          <td><img src="product3.jpg" alt="Product 3" /></td>
-          <td>lorium imposium</td>
-          <td>2</td>
-          <td>$50.00</td>
-        </tr>
+      <div id="noty" class="notification-box">
+        <div class="notification-content">
+          <span class="close" >&times;</span>
+          <p id="notification-text" >Some text in the Modal..</p>
+        </div>
+        </div>
+
+      <div class="top-start">
+        <h1>Cart</h1>
+        <p>your cart contains...</p>
+      </div>
+      
+      <div class="cart">
+        <table id="cart-table">
+            <tr>
+              <th>PRODUCT</th>
+              <th>NAME</th>
+              <th>SIZE</th>
+              <th>AMOUNT</th>
+              <th></th>
+            </tr>
+        </table>
+      <hr class="cart-hr">
+        <div id="cart-total">
+          <h3 id="cart-subtotal-price">Subtotal: 00.00 ZAR<span id="total-price"></span></h3>
+          <h3 id="cart-shipping-price">Shipping: 00.00 ZAR<span id="total-price"></span></h3>
+          <h3 id="cart-total-price">Total: 00.00ZAR<span id="total-price"></span></h3>
+          <button id="checkout-btn" onclick="getUserCart();">Checkout</button>
+        </div>
+      </div>
+
+
     </main>
+    <footer>
+        <div class="footer-content">
+          <div class="footer-socials">
+            <span class="footer-icons"><a href="mailto:info@iffyweb.co.za?subject=Inquiry"><i class="fa fa-envelope"></i></a></span>
+            <span class="footer-icons"><a href="https://wa.me/message/PGLHGNZ7WUXPA1" ><i class="fa fa-whatsapp"></i></a></span>
+            <span class="footer-icons"><a href="https://www.instagram.com/iffy.graphics" ><i class="fa fa-instagram"></i></a></span>
+            <span class='footer-icons'><a href="https://twitter.com/iffygraphics?s=21" ><i class="fa fa-twitter"></i></a></span>
+            <span class="footer-icons"><a href="https://www.linkedin.com/in/shaun-musodza-31b231181/" ><i class="fa fa-linkedin-square"></i></a></span>
+          </div>
+            <p>&copy; 2023 Designed & Built by Iffy</p>
+        </div>
+    </footer>
+  </body>
+</html>

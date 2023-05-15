@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>iffyweb-products</title>
-    <link rel="stylesheet" href="../static/styles.css" />
+    <title>Account - iffyweb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Providing logo design, web development, graphic design, and software products. I blend my technical skills and creative vision to bring brands to life, working closely with clients to deliver high-quality, innovative solutions that drive success in the digital landscape. Focus on design, functionality, and user experience."/>
+    <meta property="og:title" content="Iffy Web Account"/>
+    <meta property="og:description" content="Sign In or Sign Up to do all your web shopping and view account information." />
+    <meta property="og:image" content="https://iffyweb.co.za/static/iffy web logo.png" />
+    <link rel="stylesheet" href="../static/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../static/iffy web logo.png">
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M55D2J4SL">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4M55D2J4SL');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="../javascript-datahandler.js"></script>
+    <script src="../javascript-file.js"></script>
      <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <script>
@@ -32,9 +51,10 @@
       //getUserOrders();
       //console.log(sessionStorage.getItem("user_name"));
     if(sessionStorage.getItem("uid") == undefined){
-      notification("PLEASE LOGIN IN OR SIGN UP");
+      notification("PLEASE SIGN IN OR SIGN UP");
     }
     else{
+      document.title = sessionStorage.getItem("user_name") + " - iffyweb";
       const name = document.getElementById("display-name");
       name.innerHTML = "" + sessionStorage.getItem("user_name");
 
@@ -45,7 +65,7 @@
       const phone = document.getElementById("display-phone");
       //console.log("phone number " + sessionStorage.getItem("user_phone"));
       phone.innerHTML = "" + sessionStorage.getItem("user_phone");
-
+      getUserOrders();
       var storedArray = JSON.parse(sessionStorage.getItem('orderTable'));
       //console.log(storedArray);
 
@@ -89,19 +109,37 @@
     function closeForgotForm() {
     document.getElementById("forgot-password-form").style.display = "none";
     }
+
+    function displayInfo(id) {
+      var content = document.getElementById(id + "-content");
+      content.style.display = "block";
+    }
+
+    function hideInfo(id){
+      var content = document.getElementById(id + "-content");
+      content.style.display = "none";
+    }
     </script>
 
 
   </head>
   <body>
-    <nav>
+    <div class="mobile-menu">
+      <i class="fa fa-bars" id="menuButton" onclick="navDrop()"></i>
+      <a href="..templates/cart.html"><i class="fa fa-shopping-cart" id="shoppingButton"></i></a>
+      <a href="../templates/account.html"><i class="fa fa-user" id="userButton"></i></a>
+    </div>
+    <nav id="navbar">
+      <span class="close-nav" onclick="navClose()">&times;</span>
       <ul>
-        <li><a class = "logo-nav" href="../index.html"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="comissions.html">Services</a></li>
-        <li><a href="contact.html">About Me</a></li>
-        <li><a href="account.html" class="active-nav">Account</a></li>
+          <li><a class="logo-nav" onclick="navDrop()"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../templates/products.html">Products</a></li>
+          <li><a href="../templates/prices.html" >Prices</a></li>
+          <li><a href="../templates/comissions.html">Services</a></li>
+          <li><a href="../templates/contact.html">About Me</a></li>
+          <li><a href="../templates/account.html" class="active-nav">Account</a></li>
+          <li><a href="../templates/cart.html">Cart</a></li>
       </ul>
     </nav>
     <main>
@@ -127,8 +165,8 @@
     <input type="password" placeholder="Enter Password" id="sign-psw" required>
 
     <a onclick="openForgotForm(); closeForm();">FORGOT PASSWORD?</a>
-    <button class="btn" onclick="googleSignIn()">Login</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    <button class="btn" onclick="googleSignIn()">LOGIN</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
   </div>
 </div>
 
@@ -150,7 +188,7 @@
     <input type="password" placeholder="Enter Password" id="user-password1" required>
     <p> PLEASE NOTE: All information is secure and if you encounter any problem please contact account@iffweb.co.za</p>
     <button class="btn" onclick="googleSignUp();">CREATE ACCOUNT</button>
-    <button type="button" class="btn cancel" onclick="closeSignUpForm()">Close</button>
+    <button type="button" class="btn cancel" onclick="closeSignUpForm()">CLOSE</button>
   </div>
 </div>
 
@@ -162,73 +200,88 @@
 
     <p> PLEASE NOTE: All information is secure and if you encounter any problem please contact account@iffweb.co.za</p>
     <button class="btn" onclick="forgotPassword(); closeForgotForm();">RESET PASSWORD</button>
-    <button type="button" class="btn cancel" onclick="closeForgotForm()">Close</button>
+    <button type="button" class="btn cancel" onclick="closeForgotForm()">CLOSE</button>
   </div>
 </div>
 
 
 
-
-      <div class="container">
-          <div class="row-profile">
-      		<div class="col-md-3">
-
       			<div class="profile-sidebar">
-      				<!-- SIDEBAR USERPIC -->
+
+
               <div class="main-profile">
-      				<div class="profile-userpic">
-      					<img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive" alt="">
-      				</div>
-      				<!-- END SIDEBAR USERPIC -->
-      				<!-- SIDEBAR USER TITLE -->
-
-
+                  <img class="profile-image" src="../static/userpic.gif" alt="PROFILE PIC">
       				      <div class="profile-usertitle">
       					     <h1 class="profile-username" id="display-name">Name Surname</h1>
-      					     <h2 class="profile-useremail" id="display-email">
-      						      account@iffyweb.co.za
-      					     </h2>
-                  <h2 class="profile-usernumber" id=display-phone>
-      						      000 000 0000
-      					     </h2>
-      				    </div>
+      					     <h2 class="profile-useremail" id="display-email">account@iffyweb.co.za</h2>
+                     <h2 class="profile-usernumber" id=display-phone>000 000 0000</h2>
+      				      </div>
               </div>
-              <p id = "data"></p>
+
               <div class="profile-content">
-                <table id= "transaction-table" class="profile-transactions">
-                  <tr>
-                    <th>ORDER No</th>
-                    <th>PRODUCT No</th>
-                    <th>PRODUCT NAME</th>
-                    <th>ORDER DATE</th>
-                    <th>STATUS</th>
-                  </tr>
-                  <!-- Add more rows for additional orders -->
-                </table>
+
+              
+
+                <div class="orders-sidebar">
+                  <h1 id="heading1" onclick="displayInfo('heading1'); hideInfo('heading2'); hideInfo('heading3'); hideInfo('heading4');">ORDERS</h1>
+                  <div class="content" id="heading1-content">
+                    <table id= "transaction-table" class="profile-transactions">
+                      <tr>
+                        <th>ORDER No</th>
+                        <th>PRODUCT No</th>
+                        <th>PRODUCT NAME</th>
+                        <th>ORDER DATE</th>
+                        <th>STATUS</th>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="shipping-sidebar">
+                  <h1 id="heading3" onclick="displayInfo('heading3'); hideInfo('heading2'); hideInfo('heading1'); hideInfo('heading4');">SHIPPING DETAILS</h1>
+                  <div class="content" id="heading3-content">
+                    <div class="shipping-details">
+                      <p>House Number</p>
+                      <p>Street Name</p>
+                      <p>Street No</p>
+                      <p>City/Town</p>
+                      <p>Province</p>
+                      <p>Postal Code</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="credits-sidebar">
+                  <h1 id="heading4" onclick="displayInfo('heading4'); hideInfo('heading2'); hideInfo('heading3'); hideInfo('heading1');">CREDITS</h1>
+                  <div class="content" id="heading4-content">
+                    <p>Available Credit: 00.00 ZAR</p>
+                  </div>
+                </div>
+
+                <div class="profile-userbuttons">
+        					<button type="button" id="login" onclick="openForm()">LOGIN</button>
+        					<button type="button" id="logout" onclick="googleSignOut()">LOGOUT</button>
+                  <button type="button" id="signup" onclick="openSignUpForm()">SIGN UP</button>
+        				</div>
               </div>
-      				<!-- END SIDEBAR USER TITLE -->
-      				<!-- SIDEBAR BUTTONS -->
-      				<div class="profile-userbuttons">
-      					<button type="button" id="login" onclick="openForm()">LOGIN</button>
-      					<button type="button" id="logout" onclick="googleSignOut()">LOGOUT</button>
-                <button type="button" id="signup" onclick="openSignUpForm()">SIGN UP</button>
-      				</div>
       				<!-- END SIDEBAR BUTTONS -->
       				<!-- SIDEBAR MENU -->
 
       			</div>
-      		</div>
-      		<div class="col-md-9">
-      		</div>
-      	</div>
-      </div>
+
 
     </main>
     <footer>
-          <div class="footer-content">
-              <p>need help? email help@iffyweb.co.za</p>
-              <p>&copy; by iffy</p>
+        <div class="footer-content">
+          <div class="footer-socials">
+            <span class="footer-icons"><a href="mailto:info@iffyweb.co.za?subject=Inquiry"><i class="fa fa-envelope"></i></a></span>
+            <span class="footer-icons"><a href="https://wa.me/message/PGLHGNZ7WUXPA1" ><i class="fa fa-whatsapp"></i></a></span>
+            <span class="footer-icons"><a href="https://www.instagram.com/iffy.graphics" ><i class="fa fa-instagram"></i></a></span>
+            <span class='footer-icons'><a href="https://twitter.com/iffygraphics?s=21" ><i class="fa fa-twitter"></i></a></span>
+            <span class="footer-icons"><a href="https://www.linkedin.com/in/shaun-musodza-31b231181/" ><i class="fa fa-linkedin-square"></i></a></span>
           </div>
-      </footer>
+            <p>&copy; 2023 Designed & Built by Iffy</p>
+        </div>
+    </footer>
   </body>
 </html>

@@ -29,11 +29,11 @@ function notification(input) {
   const txt = document.getElementById("notification-text");
   txt.textContent = " " + input;
 
-  span.onclick = function() {
+  span.onclick = function () {
     noty.style.display = "none";
   }
 
-  window.onclick = function(event) {
+  window.onclick = function (event) {
     if (event.target == noty) {
       noty.style.display = "none";
     }
@@ -59,7 +59,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 // reference your database
 
-function inqSubmit(name, email,message){
+function inqSubmit(name, email, message) {
 
   //var name = "customer";
   //var email = "customer@email.com";
@@ -68,56 +68,78 @@ function inqSubmit(name, email,message){
     inq_contact_name: name,
     inq_contact_email: email,
     inq_message: message,
-})
-.then((docRef) => {
-    console.log("Document written with ID: ", docRef.id);
-})
-.catch((error) => {
-    notification("Error adding document: ", error);
-});
-}
-
-function cloudGet(){
-  db.collection("inquiries").where("inq_desc", "==", "Ada").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            //console.log(doc.data().inq_desc);
-            console.log(doc.id);
-        });
+  })
+    .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
     })
     .catch((error) => {
-        console.log("Error getting documents: ", error);
+      notification("Error adding document: ", error);
+    });
+}
+
+function cloudGet() {
+  db.collection("inquiries").where("inq_desc", "==", "Ada").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      //console.log(doc.data().inq_desc);
+      console.log(doc.id);
+    });
+  })
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
     });
 }
 
 
-//function getUserOrders(){
+function getUserOrders() {
   const tableData = [];
   db.collection("orders").where("user_id", "==", sessionStorage.getItem("uid")).get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            //console.log("from orders: " + doc.data().product_name);
-            tableData.push([doc.data().order_num , doc.data().product_id, doc.data().product_name,doc.data().order_date,
-            doc.data().order_status]);
-            // doc.data() is never undefined for query doc snapshots
-            //return data;
-        });
+    querySnapshot.forEach((doc) => {
+      //console.log("from orders: " + doc.data().product_name);
+      tableData.push([doc.data().order_num, doc.data().product_id, doc.data().product_name, doc.data().order_date,
+      doc.data().order_status]);
+      // doc.data() is never undefined for query doc snapshots
+      //return data;
+    });
     sessionStorage.setItem("orderTable", JSON.stringify(tableData));
     //console.log(tableData);
-    })
+  })
     .catch((error) => {
-        console.log("Error getting documents: ", error);
+      console.log("Error getting documents: ", error);
     });
-    //var tableArr = tableData
-    //console.log(tableData);
-    /*var options = {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric'
-    };
+}
 
-    var today = new Date();
-    var dateString = today.toLocaleDateString('en-UK', options);
-    console.log(dateString);*/
+function getUserCart() {
+  //console.log("cart work");
+  const cartData = [];
+  db.collection("carts").where("user_id", "==", sessionStorage.getItem("uid")).get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      //console.log("from cart: " + doc.data().user_id);
+      cartData.push(doc.data().cart_items);
+      // doc.data() is never undefined for query doc snapshots
+      //return data;
+      //console.log("this is what is in the cart: " + doc.data().user_id);
+    });
+    sessionStorage.setItem("cartTable", JSON.stringify(cartData));
+    console.log("items saved");
+  })
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
+    });
+}
+
+
+//var tableArr = tableData
+//console.log(tableData);
+/*var options = {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric'
+};
+
+var today = new Date();
+var dateString = today.toLocaleDateString('en-UK', options);
+console.log(dateString);*/
 //}
 
 
@@ -139,8 +161,8 @@ var loggedInUser = {
 
 function setUserValues(id, name, email, phone) {
   sessionStorage.setItem("user_id", id);
-  sessionStorage.setItem("user_name",name);
-  sessionStorage.setItem("user_email",email);
+  sessionStorage.setItem("user_name", name);
+  sessionStorage.setItem("user_email", email);
   sessionStorage.setItem("user_phone", phone);
 }
 
@@ -176,38 +198,38 @@ var orders = {
 */
 
 
-function getProduct(productName){
+function getProduct(productName) {
   //localStorage.clear();
 
   db.collection("products").where("product_name", "==", productName).get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
 
-            //const product = {
-              localStorage.clear();
-              localStorage.setItem("product_name", doc.data().product_name);
-              localStorage.setItem("product_color", doc.data().product_color);
-              localStorage.setItem("product_desc", doc.data().product_desc);
-              //var imageLinks = doc.data().product_image_url;
-              //console.log(imageLinks);
-              localStorage.setItem("product_image_url", doc.data().product_image_url);
-              console.log(localStorage.getItem("product_desc"));
-              localStorage.setItem("product_price", doc.data().product_price);
-              //location.assign('order.html')
-            //};
-            //products.push(product);
-            //localStorage.setItem("product_name", products[0].product_image_url[0]);
-            //console.log("this is product:"+ products[0].product_image_url[0]);
-            //var image1 = document.getElementById("product-image1");
-            //var data = localStorage.getItem("storedProduct");
-            //console.log("the data" + data);
-            //image1.src = products[0].product_image_url[0];
-        });
-    })
+      //const product = {
+      //localStorage.clear();
+      localStorage.setItem("product_name", doc.data().product_name);
+      localStorage.setItem("product_color", doc.data().product_color);
+      localStorage.setItem("product_desc", doc.data().product_desc);
+      //var imageLinks = doc.data().product_image_url;
+      //console.log(imageLinks);
+      localStorage.setItem("product_image_url", doc.data().product_image_url);
+      console.log(localStorage.getItem("product_desc"));
+      localStorage.setItem("product_price", doc.data().product_price);
+      //location.assign('order.html')
+      //};
+      //products.push(product);
+      //localStorage.setItem("product_name", products[0].product_image_url[0]);
+      //console.log("this is product:"+ products[0].product_image_url[0]);
+      //var image1 = document.getElementById("product-image1");
+      //var data = localStorage.getItem("storedProduct");
+      //console.log("the data" + data);
+      //image1.src = products[0].product_image_url[0];
+    });
+  })
     .catch((error) => {
       notification(error);
     });
-    //document.location.href = document.location.href;
+  //document.location.href = document.location.href;
 }
 
 
@@ -221,7 +243,7 @@ function signUp() {
   var email = document.getElementById('sign-email').value;
   var password = document.getElementById('sign-psw').value;
 
-  const saveMessages = (name , pnumber , email, password) => {
+  const saveMessages = (name, pnumber, email, password) => {
     var newUser = usersDB.push();
     newUser.set({
       user_email: email,
@@ -230,7 +252,7 @@ function signUp() {
       user_pnumber: pnumber
     });
   };
-  saveMessages(name , pnumber , email, password);
+  saveMessages(name, pnumber, email, password);
 
   alert("user" + email + " created")
 
@@ -250,8 +272,8 @@ function signIn(useremail, username) {
   //const dbRef = firebase.database().ref();
   var email = "";
   var password = "";
-  usersDB.orderByChild("email").equalTo("hi@gmail.com").once("value").then(function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
+  usersDB.orderByChild("email").equalTo("hi@gmail.com").once("value").then(function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
       email = childSnapshot.val().email;
       password = childSnapshot.val().password;
       //console.log(email , "password is ", password);
@@ -261,7 +283,7 @@ function signIn(useremail, username) {
 
 
 
-function googleSignUp(){
+function googleSignUp() {
   var name = document.getElementById('user-name').value;
   var phone = document.getElementById('user-phone').value
   var email = document.getElementById('user-email').value;
@@ -269,44 +291,44 @@ function googleSignUp(){
 
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    // Signed in
-    var user = userCredential.user;
-    //console.log("new users uid is: " + user.uid);
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+      //console.log("new users uid is: " + user.uid);
 
 
-    //var email = document.getElementById('sign-email').value;
-    //var password = document.getElementById('sign-psw').value;
-    var userid= user.uid;
-    db.collection("users").add({
-    user_name: name,
-    user_phone: phone,
-    user_email: email,
-    user_id: userid,
+      //var email = document.getElementById('sign-email').value;
+      //var password = document.getElementById('sign-psw').value;
+      var userid = user.uid;
+      db.collection("users").add({
+        user_name: name,
+        user_phone: phone,
+        user_email: email,
+        user_id: userid,
 
-    })
-    .then(function(docRef) {
-        document.getElementById("signup-form").style.display = "none";
-        firebase.auth().currentUser.sendEmailVerification()
-        .then(() => {
-          notification("Email verification sent to: " + email);
+      })
+        .then(function (docRef) {
+          document.getElementById("signup-form").style.display = "none";
+          firebase.auth().currentUser.sendEmailVerification()
+            .then(() => {
+              notification("Email verification sent to: " + email);
+            });
+          //notification("Welcome to iffyweb " + name);
+
+        })
+        .catch(function (error) {
+          notification("Error adding document: ", error);
         });
-        //notification("Welcome to iffyweb " + name);
 
-    })
-    .catch(function(error) {
-        notification("Error adding document: ", error);
+    }).catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      notification(errorMessage);
     });
-
-  }).catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    notification(errorMessage);
-  });
 }
 
 
-function googleSignIn(){
+function googleSignIn() {
   var userSession = sessionStorage.getItem("uid");
 
   //if(userSession !== null){
@@ -321,64 +343,65 @@ function googleSignIn(){
     //console.log("signed in" , user.uid);
     db.collection("users").where("user_id", "==", user.uid).get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-          //console.log(doc.data());
-          storeUIDInSession(doc.data().user_id);
-          //console.console.log("user logged in: " , sessionStorage.get("uid"));
-          setUserValues(doc.data().user_id, doc.data().user_name, doc.data().user_email, doc.data().user_phone);
+        //console.log(doc.data());
+        storeUIDInSession(doc.data().user_id);
+        //console.console.log("user logged in: " , sessionStorage.get("uid"));
+        setUserValues(doc.data().user_id, doc.data().user_name, doc.data().user_email, doc.data().user_phone);
 
 
-    });
-    document.getElementById("login-form").style.display = "none";
-    //document.getElementById("login").style.display = "none";
-    notification("WELCOME BACK " + sessionStorage.getItem("user_name"));
-    // Set the session storage with the user object
-    sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-    document.location.href = document.location.href;
+      });
+      document.getElementById("login-form").style.display = "none";
+      //document.getElementById("login").style.display = "none";
+      notification("WELCOME BACK " + sessionStorage.getItem("user_name"));
+      // Set the session storage with the user object
+      sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+      getUserCart();
+      document.location.href = document.location.href;
     });
   }).catch((error) => {
     var errorCode = error.code;
     var errorMessage = error.message;
     notification(errorMessage);
   });
-//}
-/*else{
-  console.log(sessionStorage.getItem("uid"))
-  notification("User Signed In. Please Sign Out")
-}*/
+  //}
+  /*else{
+    console.log(sessionStorage.getItem("uid"))
+    notification("User Signed In. Please Sign Out")
+  }*/
 }
 
-function googleSignOut(){
+function googleSignOut() {
   firebase.auth().signOut().then(() => {
     location.reload();
     sessionStorage.clear();
     notification("Signed Out");
 
-}).catch((error) => {
-   notification("Unable to sign out");
-});
-}
-
-
-function forgotPassword(){
-  var email = document.getElementById("forgot-email").value;
-
-  firebase.auth().sendPasswordResetEmail(email)
-  .then(() => {
-    notification("Password reset email sent!");
-
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    notification(errorMessage);
+  }).catch((error) => {
+    notification("Unable to sign out");
   });
 }
 
-function createOrder(ORDER){
-    let now = new Date();
-    let date = now.toLocaleDateString();
 
-    db.collection('order').add({
+function forgotPassword() {
+  var email = document.getElementById("forgot-email").value;
+
+  firebase.auth().sendPasswordResetEmail(email)
+    .then(() => {
+      notification("Password reset email sent!");
+
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      notification(errorMessage);
+    });
+}
+
+function createOrder(ORDER) {
+  let now = new Date();
+  let date = now.toLocaleDateString();
+
+  db.collection('order').add({
     to: sessionStorage.getItem("user_email"),
     message: {
       subject: "Order -" + localStorage.getItem("product_name"),
@@ -391,17 +414,17 @@ function createOrder(ORDER){
     product_id: localStorage.getItem("product_id"),
     product_name: localStorage.getItem("product_name"),
     user_id: sessionStorage.getItem("uid"),
-  }).then(function(docRef) {
-      document.getElementById("signup-form").style.display = "none";
-      firebase.auth().currentUser.sendEmailVerification()
+  }).then(function (docRef) {
+    document.getElementById("signup-form").style.display = "none";
+    firebase.auth().currentUser.sendEmailVerification()
       .then(() => {
         notification("Email verification sent to: " + email);
       });
-      //notification("Welcome to iffyweb " + name);
+    //notification("Welcome to iffyweb " + name);
   })
-  .catch(function(error) {
+    .catch(function (error) {
       notification("Error adding document: ", error);
-  });
+    });
 
 
 }

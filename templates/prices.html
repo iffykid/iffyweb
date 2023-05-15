@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Prices - iffyweb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Providing logo design, web development, graphic design, and software products. I blend my technical skills and creative vision to bring brands to life, working closely with clients to deliver high-quality, innovative solutions that drive success in the digital landscape. Focus on design, functionality, and user experience."/>
+    <meta property="og:title" content="Iffy Web Designing & Graphic Designing"/>
+    <meta property="og:description" content="Affordable prices for my services. Both graphic web designing and their varioud packages." />
+    <meta property="og:image" content="https://iffyweb.co.za/static/iffy web logo.png" />
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="../static/iffy web logo.png">
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M55D2J4SL">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4M55D2J4SL');
+    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="../javascript-file.js"></script>
+  </head>
+
+  <div class="form-popup" id="service-form">
+    <div  id="serviceForm" class="form-container">
+      <img src= "../static/iffy web logo.png">
+
+      <h1>SERVICE REQUEST NAME</h1>
+      <label for="name"><b>NAME</b></label>
+      <input type="text" placeholder="Enter Name" id="contact-name" required>
+  
+      <label for="email"><b>EMAIL</b></label>
+      <input type="email" placeholder="Enter Contact Email" id="contact-email" required>
+
+      <label for="phone"><b>PHONE</b></label>
+      <input type="number" placeholder="Enter Contact (Whatsapp) Number" id="contact-number" required>
+  
+      <button class="btn" onclick="">SEND REQUEST</button>
+      <button type="button" class="btn cancel" onclick="closeServiceForm()">CANCEL</button>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+  let prevScrollpos = window.pageYOffset;
+  window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById("navbar").style.top = "0";
+    } else {
+      document.getElementById("navbar").style.top = "-70px";
+    }
+    prevScrollpos = currentScrollPos;
+  };
+
+  function displayInfo(id) {
+      var content = document.getElementById("gd-content-" + id);
+      content.style.display = "block";
+    }
+
+    function hideInfo(id){
+      var content = document.getElementById("gd-content-" + id);
+      content.style.display = "none";
+    }
+
+    function submitServiceForm(reason){
+      var name = document.getElementById("contact-name").value;
+      var email = document.getElementById("contact-email").value;
+      var phone = document.getElementById("contact-phone").value;
+      
+
+    }
+
+    function openServiceForm(){
+      var content = document.getElementById("service-form");
+      content.style.display = "block";
+    }
+    
+    function closeServiceForm(){
+      var content = document.getElementById("service-form");
+      content.style.display = "none";
+    }
+
+  </script>
+
+
+  <body class="style1">
+    <div class="mobile-menu">
+      <i class="fa fa-bars" id="menuButton" onclick="navDrop()"></i>
+      <a href="../templates/cart.html"><i class="fa fa-shopping-cart" id="shoppingButton"></i></a>
+      <a href="../templates/account.html"><i class="fa fa-user" id="userButton"></i></a>
+    </div>
+    <nav id="navbar">
+      <span class="close-nav" onclick="navClose()">&times;</span>
+      <ul>
+          <li><a class="logo-nav" onclick="navDrop()"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../templates/products.html">Products</a></li>
+          <li><a href="../templates/prices.html" class="active-nav">Prices</a></li>
+          <li><a href="../templates/comissions.html">Services</a></li>
+          <li><a href="../templates/contact.html">About Me</a></li>
+          <li><a href="../templates/account.html">Account</a></li>
+          <li><a href="../templates/cart.html">Cart</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="top-start">
+        <h1>PRICES</h1>
+        <p>these are my general prices</p>
+      </div>
+      <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modalText" >Some text in the Modal..</p>
+  </div>
+
+</div>
+
+        <hr class="page-breaker">
+        <div class="gd-prices" id="graphics-prices">
+            <h1>Graphic Designing Prices</h1>
+          <div class="gd-items">
+            <div class="gd-item">
+              <div class="gd-product-1">
+                <i class="fa fa-brush"></i>
+                <button type="button" id="request-gd">REQUEST</button>
+                <h2 onclick="displayInfo('1'); hideInfo('2'); hideInfo('3');  hideInfo('4'); hideInfo('5'); hideInfo('6'); hideInfo('7'); hideInfo('8');"> Logo Design</h2>
+                <h3>320.00 ZAR</h3>
+              </div>
+                <p id="gd-content-1">A logo design service purchase that includes all necessary logo formats (print and web-friendly) and a promotional poster. The client will receive a professional logo and materials to effectively promote and use it as part of their brand identity.</p>
+            </div>
+            <div class="gd-item">
+              <div id="gd-product-2">
+                <i class="fas fa-calendar"></i>
+                <button type="button" id="request-gd" onclick="openServiceForm()">REQUEST</button>
+                <h2 onclick="displayInfo('2'); hideInfo('1'); hideInfo('3');  hideInfo('4'); hideInfo('5'); hideInfo('6'); hideInfo('7'); hideInfo('8');">Event/Brand Poster & Album Art Design</h2>
+                <h3>150.00 ZAR</h3>
+              </div>
+                <p id="gd-content-2">An event and promotional poster that includes a single high-quality poster and its necessary formats, such as print-ready PDF, JPG, and PNG, for various uses. This poster can be used to promote the event, build excitement, and attract attendees, and the various formats allow for display in various mediums, such as online and in print.</p>
+              </div>
+            <div class="gd-item">
+              <div id="gd-product-3">
+                <i class="fa fa-images"></i>
+                <button type="button" id="request-gd">REQUEST</button>
+                <h2 onclick="displayInfo('3'); hideInfo('1'); hideInfo('2');  hideInfo('4'); hideInfo('5'); hideInfo('6'); hideInfo('7'); hideInfo('8');">Poster Pack 1</h2>
+                <h3>250.00 ZAR</h3>
+              </div>
+                <p id="gd-content-3">An event and promotional poster pack that includes 3 high-quality poster and their necessary formats, such as print-ready PDF, JPG, and PNG, for various uses. These poster are all similarly themed and can be used to promote the event, build excitement, and attract attendees, and the various formats allow for display in various mediums, such as online and in print.</p>
+            </div>
+            <div class="gd-item">
+              <div id="gd-product-4">
+                <i class="fa fa-images"></i>
+                <button type="button" id="request-gd">REQUEST</button>
+                <h2 onclick="displayInfo('4'); hideInfo('2'); hideInfo('3');  hideInfo('1'); hideInfo('5'); hideInfo('6'); hideInfo('7'); hideInfo('8');">Poster Pack 2</h2>
+                <h3>420.00 ZAR</h3>
+              </div>
+                <p id="gd-content-4">An event and promotional poster pack that includes 8 high-quality poster and their necessary formats, such as print-ready PDF, JPG, and PNG, for various uses. These poster are all similarly themed and can be used to promote the event, build excitement, and attract attendees, and the various formats allow for display in various mediums, such as online and in print.</p>
+            </div>
+            <div class="gd-item">
+              <div id="gd-product-5">
+                <i class="fa fa-tshirt"></i>
+                <button type="button" id="request-gd">REQUEST</button>
+                <h2 onclick="displayInfo('5'); hideInfo('2'); hideInfo('3');  hideInfo('4'); hideInfo('1'); hideInfo('6'); hideInfo('7'); hideInfo('8');">Brand Design</h2>
+                <h3>250.00 ZAR</h3>
+              </div>
+                <p id="gd-content-5">Brand design services for apparel can help a brand create a cohesive and consistent visual identity across all of their clothing products. This service does not include the design of logos but includes things such as apparel graphics, patterns, and other elements that can be used on t-shirts, hats, hoodies, and other apparel items.This also includes creating mock ups for the design for promotional use or for use by suppliers and a brand promotional poster. The result is a well-designed, eye-catching, and memorable apparel line that effectively represents the brand and resonates with its target audience.</p>
+            </div>
+            <div class="gd-item">
+              <div id="gd-product-6">
+                <i class="fab fa-instagram"></i>
+                <button type="button" id="request-gd">REQUEST</button>
+                <h2 onclick="displayInfo('6'); hideInfo('2'); hideInfo('3');  hideInfo('4'); hideInfo('5'); hideInfo('1'); hideInfo('7');hideInfo('8'); ">Social Media Designs</h2>
+                <h3>200.00 ZAR</h3>
+              </div>
+                <p id="gd-content-6">Social media design services can help a brand create a cohesive and consistent look across their social media platforms. This service typically includes the design of Instagram highlight covers with a similar theme to the brand, a customized profile image, and two promotional posters with themes that align to the brand. The result is a visually appealing and recognizable social media presence that effectively promotes the brand and its messaging.</p>
+            </div>
+            <div class="gd-item">
+              <div id="gd-product-7">
+                <i class="fab fa-youtube"></i>
+                <button type="button" id="request-gd">REQUEST</button>
+                <h2 onclick="displayInfo('7'); hideInfo('2'); hideInfo('3');  hideInfo('4'); hideInfo('5'); hideInfo('6'); hideInfo('1'); hideInfo('8'); ">Youtube</h2>
+                <h3>150.00 ZAR</h3>
+              </div>
+                <p id="gd-content-7">YouTube account graphics services can help create a visually appealing and professional presence on the platform. This service typically includes the creation of a banner, thumbnails, and all relevant YouTube graphics such as profile picture, channel art, and end screens. The result is a cohesive and consistent look that effectively represents the brand and engages viewers.</p>
+            </div>
+            <div class="gd-item">
+              <div id="gd-product-8">
+                <i class="fa fa-inbox"></i>
+                <button type="button" id="request-gd">REQUEST</button>
+                <h2 onclick="displayInfo('8'); hideInfo('2'); hideInfo('3');  hideInfo('4'); hideInfo('5'); hideInfo('6'); hideInfo('7'); hideInfo('1'); ">Letterhead & Email Signature</h2>
+                <h3>150.00 ZAR</h3>
+              </div>
+              <p id="gd-content-8">Letterhead and email signature creation services can help establish a professional and cohesive look for a brand's written communications. This service typically includes the design of a letterhead and an email signature that incorporates the brand's logo and visual elements. The result is a consistent and memorable representation of the brand in all written communications.</p>
+            </div>
+          </div>
+        </div>
+        <div class="gd-prices" id="web-prices">
+          <h1>Web Design Prices</h1>
+        <div class="wd-items">
+          <div class="wd-item">
+            <div class="wd-product-1">
+              <i class="fas fa-globe"></i>
+              <h2> One Page</h2>
+              <p2>Suitable for start ups,bloggers, and personal use</p2>
+              <h3>1603 ZAR</h3>
+            </div>
+            <ul class="wd-list">
+              <li>1 Page Website</li>
+              <li>1 GB SSD Storage</li>
+              <li>6 Email Accounts</li>
+              <li>Free SSL Certificate</li>
+              <li>Basic SEO Setup</li>
+              <li>Basic Security</li>
+              <li>Social Links Intergration</li>
+              <li>Stock Images And Videos</li>
+              <li>Monthly Maintainence</li>
+              <li>Regular Updates</li>
+              <li>Design Limitations</li>
+            </ul>
+              <button type="button" id="request-wd">REQUEST</button>
+          </div>
+          <div class="wd-item">
+            <div id="wd-product-2">
+              <i class="fas fa-globe"></i>
+              <h2>Business</h2>
+              <p2>Suitable for SME's and growing brands in need of a professional website for marketing and sales</p2>
+              <h3>1850 ZAR</h3>
+            </div>
+            <ul class="wd-list">
+              <li>3 Page Website</li>
+              <li>2 GB SSD Storage</li>
+              <li>10 Email Accounts</li>
+              <li>Free SSL Certificate</li>
+              <li>Basic SEO Setup</li>
+              <li>Basic Security</li>
+              <li>Social Links Intergration</li>
+              <li>Stock Images And Videos</li>
+              <li>Monthly Maintenance</li>
+              <li>Regular Updates</li>
+              <li>No Design Limitations</li>
+              <li>Mobile Responsive</li>
+            </ul>
+              <button type="button" id="request-wd">REQUEST</button>
+            </div>
+          <div class="wd-item">
+            <div id="wd-product-3">
+              <i class="fas fa-globe"></i>
+              <h2>Enterprise</h2>
+              <p2>Suitable for online businesses, selling products and dilivering them online</p2>
+              <h3>10634 ZAR</h3>
+            </div>
+            <ul class="wd-list">
+              <li>5 to 10 Page Website</li>
+              <li>10 GB SSD Storage</li>
+              <li>20 Email Accounts</li>
+              <li>Free SSL Certificate</li>
+              <li>Basic SEO Setup</li>
+              <li>Basic Security</li>
+              <li>Social Links Integration</li>
+              <li>Stock Images And Videos</li>
+              <li>Monthly Maintenance</li>
+              <li>Weekly Backups</li>
+              <li>Regular Updates</li>
+              <li>No Design Limitations</li>
+              <li>Mobile Responsive</li>
+              <li>Shop Maintenance</li>
+            </ul>
+              <button type="button" id="request-wd">REQUEST</button>
+            </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <footer>
+      <div class="footer-content">
+        <div class="footer-socials">
+          <span class="footer-icons"><a href="mailto:info@iffyweb.co.za?subject=Inquiry"><i class="fa fa-envelope"></i></a></span>
+          <span class="footer-icons"><a href="https://wa.me/message/PGLHGNZ7WUXPA1" ><i class="fab fa-whatsapp"></i></a></span>
+          <span class="footer-icons"><a href="https://www.instagram.com/iffy.graphics" ><i class="fab fa-instagram"></i></a></span>
+          <span class='footer-icons'><a href="https://twitter.com/iffygraphics?s=21" ><i class="fab fa-twitter"></i></a></span>
+          <span class="footer-icons"><a href="https://www.linkedin.com/in/shaun-musodza-31b231181/" ><i class="fab fa-linkedin-square"></i></a></span>
+        </div>
+          <p>&copy; 2023 Designed & Built by Iffy</p>
+      </div>
+  </footer>
+</html>

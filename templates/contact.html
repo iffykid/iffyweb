@@ -1,9 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>iffyweb-contact</title>
+    <title>About Me - iffyweb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Providing logo design, web development, graphic design, and software products. I blend my technical skills and creative vision to bring brands to life, working closely with clients to deliver high-quality, innovative solutions that drive success in the digital landscape. Focus on design, functionality, and user experience."/>
+    <meta property="og:title" content="Iffy Web - About - Shaun Musodza"/>
+    <meta property="og:description" content="A software engineer and graphic designer. My names Shaun Musodza and let me know what i can help you with." />
+    <meta property="og:image" content="https://iffyweb.co.za/static/iffy web logo.png" />
     <link rel="stylesheet" href="../static/styles.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../static/iffy web logo.png">
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M55D2J4SL">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4M55D2J4SL');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="../javascript-file.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="../javascript-datahandler.js"></script>
@@ -11,14 +30,22 @@
   </head>
   <body>
     <header>
-      <nav>
+      <div class="mobile-menu">
+        <i class="fa fa-bars" id="menuButton" onclick="navDrop()"></i>
+        <a href="..templates/cart.html"><i class="fa fa-shopping-cart" id="shoppingButton"></i></a>
+        <a href="../templates/account.html"><i class="fa fa-user" id="userButton"></i></a>
+      </div>
+      <nav id="navbar">
+        <span class="close-nav" onclick="navClose()">&times;</span>
         <ul>
-          <li><a class = "logo-nav" href="../index.html"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
-          <li><a href="../index.html" >Home</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="comissions.html">Services</a></li>
-          <li><a href="contact.html" class="active-nav">About Me</a></li>
-          <li><a href="account.html">Account</a><li>
+            <li><a class="logo-nav" onclick="navDrop()"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../templates/products.html">Products</a></li>
+            <li><a href="../templates/prices.html" >Prices</a></li>
+            <li><a href="../templates/comissions.html">Services</a></li>
+            <li><a href="../templates/contact.html" class="active-nav">About Me</a></li>
+            <li><a href="../templates/account.html">Account</a></li>
+            <li><a href="../templates/cart.html">Cart</a></li>
         </ul>
       </nav>
     </header>
@@ -28,18 +55,19 @@
         <p>here is a little information about me</p>
         </div>
 
+
         <script>
 
-</script>
+        </script>
 
 
         <hr class="page-breaker">
         <div class="about-me-info">
           <h2>Hello World.</h2>
-          <p>My name is Shaun Musodza. I'm a Computer Science and Graphic Designer. I have been interested in computer science for several years and have completed a number of courses in subjects such as artificial intelligence, software engineering, and data structures and algorithms.</p>
+          <p>My name is Shaun Musodza.I'm a Graduate Computer Scientist (Software Engineer) and Graphic Designer. I have been interested in computer science for several years and have completed a number of courses in subjects such as artificial intelligence, software engineering, and data structures and algorithms.</p>
           <p>In addition to my studies, I have also gained experience as a graphic designer, where I have worked on projects such as designing logos and banners, and rebranding company identities. I am proficient in a number of technical skills, including Java, Python, C, JavaScript, HTML/CSS, and Adobe Photoshop, Lightroom and Premiere Pro .Fluent in English and speak Afrikaans and Setswana.</p>
           <p>I am passionate about using my skills and knowledge to create useful and innovative projects, such as my school project, a mobile application for alerting authorities of crimes in university communities. In my free time, I enjoy working on personal projects, such as building e-commerce websites and managing an online businesses.</p>
-      </div>
+        </div>
       <!--h1>Get in touch with me</h1>
       <p>fill in the form and let me know what i can help you with</p>
       <div class="findOut">
@@ -56,7 +84,7 @@
 
 
 
-      <div class="business-card">
+      <div class="business-card" id="business-crd">
         <div class="profile-details">
           <h1>Shaun M Musodza (Iffy)</h1>
           <h2>Software Engineer, Web Developer & Graphic Designer</h2>
@@ -65,11 +93,11 @@
 
         </div>
         <div class="profile-pils">
-          <span class="pils"><a href="mailto:info@iffyweb.co.za?subject=Inquiry" ><i class="fa fa-envelope"></i> Email</a></span>
-          <span class="pils"><a href="https://wa.me/message/PGLHGNZ7WUXPA1" ><i class="fa fa-whatsapp"></i> Whatsapp</a></span>
-          <span class="pils"><a href="https://www.instagram.com/iffy.graphics" ><i class="fa fa-instagram"></i> Instagram</a></span>
-          <span class='pils'><a href="https://twitter.com/iffygraphics?s=21" ><i class="fa fa-twitter"></i> Twitter</a></span>
-          <span class="pils"><a href="https://www.linkedin.com/in/shaun-musodza-31b231181/" ><i class="fa fa-linkedin-square"></i> LinkedIn</a></span>
+          <span class="pils email-pil"><a href="mailto:info@iffyweb.co.za?subject=Inquiry" ><i class="fa fa-envelope"></i> Email</a></span>
+          <span class="pils whatsapp-pil"><a href="https://wa.me/message/PGLHGNZ7WUXPA1" ><i class="fa fa-whatsapp"></i> Whatsapp</a></span>
+          <span class="pils instagram-pil"><a href="https://www.instagram.com/iffy.graphics" ><i class="fa fa-instagram"></i> Instagram</a></span>
+          <span class='pils twitter-pil'><a href="https://twitter.com/iffygraphics?s=21" ><i class="fa fa-twitter"></i> Twitter</a></span>
+          <span class="pils linkedin-pil"><a href="https://www.linkedin.com/in/shaun-musodza-31b231181/" ><i class="fa fa-linkedin-square"></i> LinkedIn</a></span>
         </div>
       </div>
 

@@ -43,8 +43,8 @@ background-position: right bottom 0;
 .image-container img {
   width: 200px; /* set the initial width of the image */
   height: auto; /* set the height of the image to automatically scale based on the width */
-  top: 60px; /* set the final top position of the image */
-  left: 60px; /* set the final left position of the image */
+  top: 0px; /* set the final top position of the image */
+  left: 800px; /* set the final left position of the image */
 }
 
 
@@ -62,7 +62,6 @@ background-position: right bottom 0;
 }
 
 .info-nav h3{
-  font-size: 30px;
   font-family: 'Playfair Display';
   font-size: 30px;
   font-weight: bolder;
@@ -76,7 +75,8 @@ background-position: right bottom 0;
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    font-family: 'Playfair Display';font-size: 14px;
+    font-family: 'Playfair Display';
+    font-size: 14px;
 }
 
 .info-nav input{
@@ -91,11 +91,78 @@ background-position: right bottom 0;
 
 
 .info-nav button{
+  font-family: 'Playfair Display';
   width: 120px;
   height: 30px;
   margin-bottom: 10px;
   border-radius: 10px;
-  background-color: none;
+  background-color: white;
   color: black;
   font-size: 18px;
+}
+
+@media only screen and (max-width: 640px){
+
+.image-container img {
+  width: 100px; /* set the initial width of the image */
+  height: auto; /* set the height of the image to automatically scale based on the width */
+  top: 30px; /* set the final top position of the image */
+  left: 0px; /* set the final left position of the image */
+}
+
+.content {
+  display: none;
+}
+
+.info-nav{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+
+.info-nav h3{
+  font-family: 'Playfair Display';
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.info-nav h3:hover{
+  cursor: pointer;
+}
+
+.info-nav p{
+    width: 100%;
+    text-align: center;
+    font-family: 'Playfair Display';
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.info-nav input{
+  width: 200px;
+  height: 27px;
+  border-radius: 0px;
+  margin-top: 15px ;
+  text-align: center;
+  font-family: cursive;
+  border-width: 3px;
+}
+
+.info-nav button{
+  font-family: 'Playfair Display';
+  width: 100px;
+  height: 30px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+
+}
+
+
 }

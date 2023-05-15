@@ -1,26 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <script>
 </script>
   <head>
     <title>iffyweb-order</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Shop from a variety of graphic hoodies, tees and posters."/>
+    <meta property="og:title" content="Iffy Web"/>
+    <meta property="og:description" content="From all your graphic needs to web designing needs, you can find anything you need right here." />
+    <meta property="og:image" content="https://iffyweb.co.za/static/iffy web logo.png" />
     <link rel="stylesheet" href="../static/styles.css" />
     <link rel="stylesheet" href="../static/styles2.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M55D2J4SL">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4M55D2J4SL');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="../javascript-file.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="../javascript-datahandler.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
   </head>
   <body class="style1">
-    <nav>
+    <div class="mobile-menu">
+      <i class="fa fa-bars" id="menuButton" onclick="navDrop()"></i>
+      <a href="../templates/cart.html"><i class="fa fa-shopping-cart" id="shoppingButton"></i></a>
+      <a href="../templates/account.html"><i class="fa fa-user" id="userButton"></i></a>
+    </div>
+    <nav id="navbar">
+      <span class="close-nav" onclick="navClose()">&times;</span>
       <ul>
-        <li><a class = "logo-nav" href="../index.html"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
-        <li><a href="../index.html" >Home</a></li>
-        <li><a href="products.html" class="active-nav">Products</a></li>
-        <li><a href="comissions.html">Services</a></li>
-        <li><a href="contact.html">About Me</a></li>
-        <li><a href="account.html">Account</a><li>
+          <li><a class="logo-nav" onclick="navDrop()"><img src= "../static/iffy web logo.png" id ="logo"></a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../templates/products.html" class="active-nav">Products</a></li>
+          <li><a href="../templates/prices.html" >Prices</a></li>
+          <li><a href="../templates/comissions.html">Services</a></li>
+          <li><a href="../templates/contact.html">About Me</a></li>
+          <li><a href="../templates/account.html">Account</a></li>
+          <li><a href="../templates/cart.html">Cart</a></li>
       </ul>
     </nav>
       <main>
@@ -40,34 +65,38 @@
           <h2>Order Details:</h2>
           <p id="order-information">Hoodie Tshirt Poster Info</p>
           <p id="order-contact-info">THIS IS A SIMULATED ORDER . FOR ORDER INFORMATION PLEASE EMAIL order@iffyweb.co.za. NOTE: </p>
-          <button type="button" onclick="closeConfirmationBox()">CANCEL</button>
-          <button type="button" name="confirmed" onclick="closeConfirmationBox(); notification('thank you. Please note that was a simulated order.'); setTimeout(function() { window.location = 'account.html';}, 6000);">PLACE ORDER</button>
+          <button class="btn-cancel" type="button" onclick="closeConfirmationBox()">CANCEL</button>
+          <button class="btn-confirm" type="button" name="confirmed" onclick="closeConfirmationBox(); notification('ITEM ADDED TO CART...');">PLACE ORDER</button>
         </div>
         </div>
 
 <script type="text/javascript">
+console.log(localStorage.getItem("product_name"));
+//console.log(localStorage.getItem("product_name"));
 //localStorage.clear();
 //document.location.href = document.location.href;
 window.addEventListener('storage', function(event) {
   if (event.key === 'product_image_url') {
-    // The data stored under the key 'myKey' has changed, update the page accordingly
+    // run the updatePage function when the page has finished loading
+    var productName = "" + localStorage.getItem("product_name");
+    // replace the URL with the product name
+    window.history.replaceState(null, null, "order.html?ProductName=" + encodeURIComponent(productName));
     updatePage();
   }
 });
 
+window.onload = function () {
+  // run the updatePage function when the page has finished loading
+  var productName = "" + localStorage.getItem("product_name");
+  // replace the URL with the product name
+  window.history.replaceState(null, null, "order.html?ProductName=" + encodeURIComponent(productName));
+  updatePage();
+};
+
 var discountedPrice = 0;
 function updatePage() {
-
-  // Get the updated data from local storage
-  //let data = JSON.parse(localStorage.getItem('product_image_url'));
-  // Use the data to update the page elements
-  // ...
-//}
-
-//window.onload = function() {
-//document.location.href = document.location.href;
-//location.reload();
-
+  
+  document.title = localStorage.getItem("product_name") + " - iffyweb";
   var arrString = localStorage.getItem("product_image_url");
   var arrUrl = arrString.split(",");
   //console.log("the array is: " + arrUrl.length);
@@ -123,6 +152,7 @@ function updatePage() {
 
 //};
 }
+
 //document.location.href = document.location.href;
 function closeConfirmationBox(){
   var confirmBox = document.getElementById("confirmation").style.display = "none";
@@ -216,7 +246,7 @@ function orderDetails(){
                         <span class="divider"></span>
 
                         <div class="product-btn-group">
-                            <button onclick="orderDetails(); openConfirmationBox()" >Order Now</button>
+                            <button onclick="orderDetails(); openConfirmationBox()" >ADD TO CART</button>
                         </div>
                     </div>
                 </div>
@@ -224,8 +254,60 @@ function orderDetails(){
         </div>
     </div>
 
+
+<!--                    POPULAR PRODUCTS                          -->
     <h1>Popular Products</h1>
-    <div class ="product-display" id="smaller-products">
+    <div class="product-display-container">
+      <div class="product-box">
+        <div class="image-box">
+          <img src="../hoodiesandtees/reece-white.png">
+          <a><i class="fa fa-heart"></i></a>
+        </div>
+        <div class="product-details">
+          <h3>A-Reece Hoodie</h3>
+          <span class="product-offer-price">416.50 ZAR</span>
+          <span class="product-sale-price">490.00 ZAR</span>
+        </div>
+        <button type="button" name="button" onclick= "window.open('../templates/order.html'); getProduct('A-Reece Hoodie');">ADD TO CART</button>
+      </div>
+      <div class="product-box">
+        <div class="image-box">
+          <img src="../hoodiesandtees/boondocksblack.png">
+          <a><i class="fa fa-heart"></i></a>
+        </div>
+        <div class="product-details">
+          <h3>Aaliyah Hoodie</h3>
+          <span class="product-offer-price">416.50 ZAR</span>
+          <span class="product-sale-price">490.00 ZAR</span>
+        </div>
+        <button type="button" name="button" onclick="window.open('../templates/order.html'); getProduct('The Boondocks Tee');">ADD TO CART</button>
+      </div>
+      <div class="product-box">
+        <div class="image-box">
+          <img src="../poster/pele-poster.jpg">
+          <a><i class="fa fa-heart"></i></a>
+        </div>
+        <div class="product-details">
+          <h3>Pele Poster</h3>
+          <span class="product-offer-price">00.00 ZAR</span>
+          <span class="product-sale-price">50.00 ZAR</span>
+        </div>
+        <button type="button" name="button" onclick= "window.open('../templates/order-posters.html'); getProduct('Pele Poster');">PURCAHSE</button>
+      </div>
+      <div class="product-box">
+        <div class="image-box">
+          <img src="../hoodiesandtees/kobe-black.png">
+          <a><i class="fa fa-heart"></i></a>
+        </div>
+        <div class="product-details">
+          <h3>Kobe Bryant Tee</h3>
+          <span class="product-offer-price">197.37</span>
+          <span class="product-sale-price">232.20.00 ZAR</span>
+        </div>
+        <button type="button" name="button" onclick= "window.open('../templates/order.html'); getProduct('Kobe Bryant Tee');">ADD TO CART</button>
+      </div>
+    </div>
+    <!--div class ="product-display" id="smaller-products">
         <div class="product-box">
           <img src="../hoodiesandtees/reece-white.png" onclick= "window.open('order.html'); getProduct('A-Reece Hoodie');"/>
           <h2>A-Reece Hoodie</h2>
@@ -259,8 +341,20 @@ function orderDetails(){
         </div>
 
 
-      </div>
+      </div-->
 
   </main>
   </body>
+  <footer>
+      <div class="footer-content">
+        <div class="footer-socials">
+          <span class="footer-icons"><a href="mailto:info@iffyweb.co.za?subject=Inquiry"><i class="fa fa-envelope"></i></a></span>
+          <span class="footer-icons"><a href="https://wa.me/message/PGLHGNZ7WUXPA1" ><i class="fa fa-whatsapp"></i></a></span>
+          <span class="footer-icons"><a href="https://www.instagram.com/iffy.graphics" ><i class="fa fa-instagram"></i></a></span>
+          <span class='footer-icons'><a href="https://twitter.com/iffygraphics?s=21" ><i class="fa fa-twitter"></i></a></span>
+          <span class="footer-icons"><a href="https://www.linkedin.com/in/shaun-musodza-31b231181/" ><i class="fa fa-linkedin-square"></i></a></span>
+        </div>
+          <p>&copy; 2023 Designed & Built by Iffy</p>
+      </div>
+  </footer>
 </html>
